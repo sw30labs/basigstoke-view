@@ -16,7 +16,7 @@ const state = {
   scale: 0.9,               // px per metre
   dragging: false, moved: 0, lastX: 0, lastY: 0,
   hover: null, popup: null,
-  d: {},                     // loaded data
+  d: {},                     // loaded data (geometry with pre-projected ENU coords)
   contours: [],
   relief: {},                // per-mode canvases
   tles: [],
@@ -44,7 +44,6 @@ const MODES = {
 /* palettes for hillshade by mode */
 function palFactory(mode) {
   if (mode === 'relief') return (h, t) => {
-    // classic hypsometric
     if (h < 20) return [40, 90, 110];
     const ramp = [[60,110,70],[110,140,70],[170,160,90],[190,150,110],[200,190,180]];
     const i = Math.min(ramp.length - 1, Math.floor(t * ramp.length));
@@ -63,7 +62,6 @@ const QUOTES = [
   'Sir William Chandler Roberts, RAF aerobatics legend, learned to fly at nearby Everinghame — that one is true.',
   'A Saxon word before the Domesday, still steaming after all these centuries.',
 ];
-const bootQuotes = ['Infiltrating SRTM DEM tiles…','Reading the chalk downland…','Waking the OpenSky radars…','Triangulating from the Mayflower pub…'];
 async function boot() {
   const log = $('#boot-log'), fill = $('#boot-fill');
   $('#boot-quote').textContent = QUOTES[Math.floor(Math.random() * QUOTES.length)];
@@ -91,6 +89,20 @@ async function boot() {
       await Promise.all(names.map(get));
     Object.assign(state.d, { places, roads, railways, water, urban, coast, counties, towers, cables });
   });
+  await step('pre-compute ENU coordinates for static geometry', () => {
+    // Transform all static GeoJSON from [lon,lat] to pre-projected ENU [ex,ey]
+    // so draw functions skip the lon/lat -> world coordinate multiplication.
+    projectFC(state.d.places);
+    projectFC(state.d.roads);
+    projectFC(state.d.railways);
+    projectFC(state.d.water);
+    projectFC(state.d.urban);
+    projectFC(state.d.coast);
+    projectFC(state.d.counties);
+    projectFCTowers();
+    projectFCCables();
+    projectContourENU();
+  });
   await step('satellite catalogue (CelesTrak, epoch-frozen)', loadTles);
   await step('live: air traffic (OpenSky)', () => refreshFlights().then(() => {}));
   await step('live: seismicity (USGS)', () => refreshQuakes().then(() => {}));
@@ -117,55 +129,52 @@ async function boot() {
   setInterval(() => refreshWx().catch(() => {}), 300000);
 }
 
-async function loadTles() {
-  const txt = await (await fetch('assets/data/tles.json')).text();
-  const lines = txt.split(/\r?\n/);
-  let group = 'stations', name = 'UNKNOWN';
-  for (let i = 0; i < lines.length; i++) {
-    const ln = lines[i];
-    if (ln.startsWith('GROUP:')) { group = ln.slice(6).trim(); continue; }
-    if (ln.startsWith('1 ') && i + 1 < lines.length && lines[i + 1].startsWith('2 ')) {
-      try {
-        const satrec = twoline2satrec(ln, lines[i + 1]);
-        if (satrec && !satrec.error) state.satrecs.set(name, { satrec, name, group });
-      } catch (e) {}
-      i += 1; // consume line2
-    } else if (ln && !ln.startsWith('1 ') && !ln.startsWith('2 ') && !ln.startsWith('EPOCH:')) {
-      name = ln.trim();
+/* ---- pre-project geometry to ENU world coordinates ---- */
+function projectFC(fc) { // transforms in-place, storing _p arrays on geometry
+  for (const f of fc.features) {
+    const g = f.geometry;
+    if (g.type === 'Point') {
+      g._p = toWorld(g.coordinates[0], g.coordinates[1]);
+    } else if (g.type === 'LineString') {
+      g._p = g.coordinates.map(([lon, lat]) => toWorld(lon, lat));
+    } else if (g.type === 'Polygon') {
+      g._p = g.coordinates.map(ring => ring.map(([lon, lat]) => toWorld(lon, lat)));
+    } else if (g.type === 'MultiLineString') {
+      g._p = g.coordinates.map(line => line.map(([lon, lat]) => toWorld(lon, lat)));
     }
   }
-  state.tles = [...state.satrecs.keys()];
 }
-
-/* SGP4 → geodetic lon/lat/alt for a satrec at time */
-function satPos(satrec, date) {
-  const p = propagate(satrec, date);
-  if (!p || p.position === undefined) return null;
-  const gmst = gstime(date);
-  const geo = eciToGeodetic(eciToEcf(p.position, gmst), satrec.astar !== undefined ? 6378.137 : 6378.137);
-  return { lon: geo.longitude * 180 / Math.PI, lat: geo.latitude * 180 / Math.PI, alt: geo.height };
-}
-function groundTrack(satrec, minutes) {
-  const pts = [];
-  const start = Date.now();
-  for (let m = -minutes / 2; m <= minutes; m += 0.5) {
-    const p = satPos(satrec, new Date(start + m * 60000));
-    if (p) pts.push([p.lon, p.lat, p.alt, m]);
+function projectFCTowers() {
+  for (const f of state.d.towers.features) {
+    const [lon, lat] = f.geometry.coordinates;
+    f.geometry._p = toWorld(lon, lat);
   }
-  return pts;
 }
-/* look angles of ISS from Basingstoke right now */
-function lookAngles(satrec, date) {
-  const p = propagate(satrec, date);
-  if (!p || p.position === undefined) return null;
-  const gmst = gstime(date);
-  const obs = geodeticToEcf({ latitude: LAT0 * Math.PI / 180, longitude: LON0 * Math.PI / 180, height: 0.088 });
-  const r = eciToEcf(p.position, gmst);
-  const la = ecfToLookAngles(obs, { x: r.x - obs.x, y: r.y - obs.y, z: r.z - obs.z });
-  return { el: la.elevation * 180 / Math.PI, az: la.azimuth * 180 / Math.PI };
+function projectFCCables() {
+  for (const f of state.d.cables.features) {
+    const g = f.geometry;
+    if (g.type === 'LineString') {
+      g._p = g.coordinates.map(([lon, lat]) => toWorld(lon, lat));
+    } else if (g.type === 'MultiLineString') {
+      g._p = g.coordinates.map(line => line.map(([lon, lat]) => toWorld(lon, lat)));
+    }
+  }
+}
+function projectContourENU() {
+  for (const c of state.contours) {
+    for (const seg of c.segs) {
+      seg[0] = toWorld(seg[0][0], seg[0][1]);
+      seg[1] = toWorld(seg[1][0], seg[1][1]);
+    }
+  }
 }
 
-/* ------------------------------------------------------------------ projection */
+/* ---- fast projection from pre-computed ENU ---- */
+function pxs(ex, ey) {
+  return [(ex - state.cx) * state.scale + W / 2, (ey - state.cy) * state.scale + H / 2];
+}
+
+/* slow projection from lon/lat (live data) */
 function px(lon, lat) { const [x, y] = toWorld(lon, lat); return [(x - state.cx) * state.scale + W / 2, (y - state.cy) * state.scale + H / 2]; }
 function unpx(x, y) { return toLonLat(state.cx + (x - W / 2) / state.scale, state.cy + (y - H / 2) / state.scale); }
 function onResize() {
@@ -197,8 +206,6 @@ function draw() {
     const [x0, y0] = px(e.lonmin, e.latmax), [x1, y1] = px(e.lonmax, e.latmin);
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(state.relief[state.mode], x0, y0, x1 - x0, y1 - y0);
-  } else {
-    // flat land wash inside coastline when terrain off
   }
 
   if (state.layers.contours) drawContours(M);
@@ -231,7 +238,7 @@ function drawContours(M) {
       : `rgba(53,255,158,${li % majorEvery ? 0.10 : 0.22})`;
     ctx.beginPath();
     for (const [p, q] of c.segs) {
-      const [ax, ay] = px(p[0], p[1]); const [bx, by] = px(q[0], q[1]);
+      const [ax, ay] = pxs(p[0], p[1]); const [bx, by] = pxs(q[0], q[1]);
       if (Math.abs(ax - bx) > W) continue;
       ctx.moveTo(ax, ay); ctx.lineTo(bx, by);
     }
@@ -244,10 +251,11 @@ function drawCoast(M) {
   ctx.lineWidth = 1.2;
   ctx.beginPath();
   for (const f of state.d.coast.features) {
-    const cs = f.geometry.coordinates;
+    const cs = f.geometry._p;
+    if (!cs) continue;
     let started = false;
-    for (const [lon, lat] of cs) {
-      const [x, y] = px(lon, lat);
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (x < -3000 || x > W + 3000 || y < -3000 || y > H + 3000) { started = false; continue; }
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
@@ -259,18 +267,19 @@ function drawCounties(M) {
   ctx.strokeStyle = 'rgba(255,214,102,.35)'; ctx.setLineDash([4, 5]); ctx.lineWidth = 1;
   ctx.beginPath();
   for (const f of state.d.counties.features) {
+    const cs = f.geometry._p;
+    if (!cs) continue;
     let started = false;
-    for (const [lon, lat] of f.geometry.coordinates) {
-      const [x, y] = px(lon, lat);
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
   }
   ctx.stroke(); ctx.setLineDash([]);
 }
 function polyRing(geom) {
-  const c = geom && geom.coordinates;
+  const c = geom && geom._p;
   if (!c || !c.length) return [];
-  // GeoJSON Polygon is [ring]; a bare ring also shows up from older ingest.
   return typeof c[0][0] === 'number' ? c : (c[0] || []);
 }
 function drawUrban(M) {
@@ -281,9 +290,8 @@ function drawUrban(M) {
     const cs = polyRing(f.geometry);
     if (cs.length < 3) continue;
     let started = false;
-    for (const pt of cs) {
-      if (!pt || pt.length < 2) continue;
-      const [x, y] = px(pt[0], pt[1]);
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
   }
@@ -295,8 +303,9 @@ function drawLines(fc, color, lw, styleFn) {
     ctx.strokeStyle = styleFn ? styleFn(f) || color : color;
     ctx.beginPath();
     let started = false;
-    for (const [lon, lat] of f.geometry.coordinates) {
-      const [x, y] = px(lon, lat);
+    const cs = f.geometry._p || f.geometry.coordinates;
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
     ctx.stroke();
@@ -306,12 +315,13 @@ function drawCables(M) {
   ctx.strokeStyle = state.mode === 'radar' ? 'rgba(53,255,158,.16)' : 'rgba(80,140,255,.22)';
   ctx.lineWidth = 1; ctx.beginPath();
   for (const f of state.d.cables.features) {
-    const coords = f.geometry.type === 'LineString' ? [f.geometry.coordinates]
-      : f.geometry.type === 'MultiLineString' ? f.geometry.coordinates : [];
+    const coords = f.geometry.type === 'LineString' ? [f.geometry._p]
+      : f.geometry.type === 'MultiLineString' ? f.geometry._p : [];
     for (const line of coords) {
+      if (!line) continue;
       let started = false;
       for (let i = 0; i < line.length; i += 4) {
-        const [x, y] = px(line[i][0], line[i][1]);
+        const [x, y] = pxs(line[i][0], line[i][1]);
         if (x < -500 || x > W + 500 || y < -500 || y > H + 500) { started = false; continue; }
         if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
       }
@@ -321,7 +331,7 @@ function drawCables(M) {
 }
 
 const ROAD_STYLE = (f) => {
-  const h = f.properties.highway, s = f.properties.service;
+  const h = f.properties.highway;
   if (h === 'motorway') return { c: 'motorway', w: 2.6 };
   if (h === 'trunk') return { c: 'trunk', w: 1.9 };
   if (h === 'primary') return { c: 'primary', w: 1.3 };
@@ -334,17 +344,19 @@ function drawRoads(M) {
     const st = ROAD_STYLE(f); if (!st) continue;
     ctx.strokeStyle = M.roads[st.c]; ctx.lineWidth = st.w;
     ctx.beginPath(); let started = false;
-    for (const [lon, lat] of f.geometry.coordinates) {
-      const [x, y] = px(lon, lat);
+    const cs = f.geometry._p;
+    if (!cs) continue;
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
     ctx.stroke();
-    // label refs (M3, A30, A33...) once each, when zoomed enough
     const ref = f.properties.ref || f.properties.name;
     if (ref && state.scale > 0.04 && !seen.has(ref) && /^(M\d|A\d)/.test(ref)) {
       seen.add(ref);
-      const mid = f.geometry.coordinates[Math.floor(f.geometry.coordinates.length / 2)];
-      const [x, y] = px(mid[0], mid[1]);
+      const mid = cs[Math.floor(cs.length / 2)];
+      if (!mid) continue;
+      const [x, y] = pxs(mid[0], mid[1]);
       if (x > 60 && x < W - 60 && y > 80 && y < H - 40) {
         ctx.font = '600 10px "IBM Plex Mono"';
         const w = ctx.measureText(ref).width + 8;
@@ -362,17 +374,20 @@ function drawRail(M) {
   for (const f of state.d.railways.features) {
     if (f.geometry.type !== 'LineString') continue;
     ctx.beginPath(); let started = false;
-    for (const [lon, lat] of f.geometry.coordinates) {
-      const [x, y] = px(lon, lat);
+    const cs = f.geometry._p;
+    if (!cs) continue;
+    for (const [ex, ey] of cs) {
+      const [x, y] = pxs(ex, ey);
       if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
     }
     ctx.stroke();
   }
   ctx.setLineDash([]);
-  // stations
   if (state.scale > 0.05) for (const f of state.d.railways.features) {
     if (f.geometry.type !== 'Point') continue;
-    const [x, y] = px(...f.geometry.coordinates);
+    const p = f.geometry._p;
+    if (!p) continue;
+    const [x, y] = pxs(p[0], p[1]);
     const big = /Basingstoke/i.test(f.properties.name || '');
     ctx.strokeStyle = M.rail; ctx.lineWidth = 1.4;
     ctx.strokeRect(x - 3.5, y - 3.5, 7, 7);
@@ -393,20 +408,21 @@ function drawFlowSim(M) {
     flowSeed = [];
     const roads = state.d.roads.features.filter(f => /^(M3|M4|A30|A33|A34|A3)$/.test((f.properties.ref || '')));
     for (const f of roads) {
+      const cs = f.geometry._p;
+      if (!cs || cs.length < 2) continue;
       const n = f.properties.highway === 'motorway' ? 10 : 5;
       for (let i = 0; i < n; i++)
-        flowSeed.push({ fc: f.geometry.coordinates, t: Math.random(), v: (0.00018 + Math.random() * 0.0002) * (Math.random() > 0.5 ? 1 : -1), ref: f.properties.ref });
+        flowSeed.push({ fc: cs, t: Math.random(), v: (0.00018 + Math.random() * 0.0002) * (Math.random() > 0.5 ? 1 : -1), ref: f.properties.ref });
     }
   }
-  const now = state.time;
   ctx.fillStyle = state.mode === 'night' ? 'rgba(255,120,120,.9)' : 'rgba(120,255,190,.9)';
   for (const s of flowSeed) {
     s.t += s.v * 30; if (s.t > 1) s.t -= 1; if (s.t < 0) s.t += 1;
     const idx = s.t * (s.fc.length - 1);
     const i0 = idx | 0, i1 = Math.min(i0 + 1, s.fc.length - 1);
-    const lon = s.fc[i0][0] + (s.fc[i1][0] - s.fc[i0][0]) * (idx - i0);
-    const lat = s.fc[i0][1] + (s.fc[i1][1] - s.fc[i0][1]) * (idx - i0);
-    const [x, y] = px(lon, lat);
+    const ex = s.fc[i0][0] + (s.fc[i1][0] - s.fc[i0][0]) * (idx - i0);
+    const ey = s.fc[i0][1] + (s.fc[i1][1] - s.fc[i0][1]) * (idx - i0);
+    const [x, y] = pxs(ex, ey);
     if (x > 0 && x < W && y > 0 && y < H) ctx.fillRect(x - 1.4, y - 1.4, 2.8, 2.8);
   }
 }
@@ -428,7 +444,9 @@ function drawPlaces(M) {
     const c = f.properties.cat;
     if (th && !th.test(c)) continue;
     if (f.properties.name && /camp hospital|workhouse/i.test(f.properties.name)) continue;
-    const [x, y] = px(...f.geometry.coordinates);
+    const p = f.geometry._p;
+    if (!p) continue;
+    const [x, y] = pxs(p[0], p[1]);
     if (x < 0 || x > W || y < 0 || y > H) continue;
     const col = c === 'pub' || c === 'bar' ? '#ffb347' :
                 c === 'tower' ? '#ff5c5c' :
@@ -445,12 +463,12 @@ function drawPlaces(M) {
   ctx.textAlign = 'left';
 }
 function drawTowerMarkers(M) {
-  // big UK towers visible at regional zoom, with real height-tagged spikes
   const towers = state.d.towers.features.filter(f =>
     f.properties.src === 'curated' || (f.properties.height_m || 0) >= 120);
   for (const f of towers) {
-    const [lon, lat] = f.geometry.coordinates;
-    const [x, y] = px(lon, lat);
+    const p = f.geometry._p;
+    if (!p) continue;
+    const [x, y] = pxs(p[0], p[1]);
     if (x < -50 || x > W + 50 || y < -50 || y > H + 50) continue;
     const h = f.properties.height_m || 100;
     const pxPerM = Math.max(0.05, state.scale * 4);
@@ -473,11 +491,10 @@ function drawQuakes(M) {
     const r = 3 + q.mag * q.mag * 0.8;
     ctx.strokeStyle = q.mag >= 6 ? '#ff5c5c' : q.mag >= 5 ? '#ffb347' : '#ffe08a';
     ctx.lineWidth = 1.2;
-    ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.stroke();
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(x - r - 2, y); ctx.lineTo(x + r + 2, y);
     ctx.moveTo(x, y - r - 2); ctx.lineTo(x, y + r + 2); ctx.stroke();
   }
-  // measured distance lines to notable events
   const notable = live.quakes.slice(0, 1);
   ctx.setLineDash([3, 5]); ctx.lineWidth = 1;
   for (const q of notable) {
@@ -522,7 +539,6 @@ function drawFlights(M) {
 
 function drawISS(M) {
   if (!state.issTrack) return;
-  // ground track
   ctx.strokeStyle = 'rgba(79,216,255,.6)'; ctx.lineWidth = 1.2; ctx.setLineDash([6, 4]);
   ctx.beginPath(); let started = false;
   for (const [lon, lat] of state.issTrack) {
@@ -530,7 +546,6 @@ function drawISS(M) {
     if (!started) { ctx.moveTo(x, y); started = true; } else ctx.lineTo(x, y);
   }
   ctx.stroke(); ctx.setLineDash([]);
-  // current position (live propagation)
   const rec = state.satrecs.get('ISS (ZARYA)');
   if (rec) {
     const p = satPos(rec.satrec, new Date());
@@ -538,7 +553,7 @@ function drawISS(M) {
       state.issNow = p;
       const [x, y] = px(p.lon, p.lat);
       ctx.strokeStyle = '#4fd8ff'; ctx.lineWidth = 1.4;
-      ctx.beginPath(); ctx.arc(x, y, 6, 0, 7); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, 6, 0, Math.PI * 2); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(x - 10, y); ctx.lineTo(x + 10, y); ctx.moveTo(x, y - 10); ctx.lineTo(x, y + 10); ctx.stroke();
       ctx.font = '300 9px "IBM Plex Mono"'; ctx.fillStyle = '#4fd8ff';
       ctx.fillText(`ISS · ${p.alt.toFixed(0)} km`, x + 9, y - 8);
@@ -548,9 +563,8 @@ function drawISS(M) {
 
 function drawHubRings(M) {
   const [bx, by] = px(LON0, LAT0);
-  // centre marker — Basingstoke
   ctx.strokeStyle = M.roads.motorway; ctx.lineWidth = 1.5;
-  ctx.beginPath(); ctx.arc(bx, by, 5, 0, 7); ctx.stroke();
+  ctx.beginPath(); ctx.arc(bx, by, 5, 0, Math.PI * 2); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(bx - 12, by); ctx.lineTo(bx + 12, by); ctx.moveTo(bx, by - 12); ctx.lineTo(bx, by + 12); ctx.stroke();
   if (state.scale > 0.05) {
     ctx.font = '500 11px "IBM Plex Mono"'; ctx.fillStyle = M.text;
@@ -571,35 +585,34 @@ function drawScaleBar(M) {
 
 /* ------------------------------------------------------------------ radar */
 const radar = $('#radar'), rctx = radar.getContext('2d');
-let sweep = 0, blips = [];
+let sweep = 0;
 function drawRadar() {
   if (state.mode !== 'radar') { $('#radarbox').classList.add('hidden'); return; }
   $('#radarbox').classList.remove('hidden');
-  const R = radar.width / 2, RANGE = 120000; // metres
+  const R = radar.width / 2, RANGE = 120000;
   rctx.fillStyle = 'rgba(2,8,6,.3)'; rctx.fillRect(0, 0, 560, 560);
   rctx.strokeStyle = 'rgba(53,255,158,.28)'; rctx.lineWidth = 1;
   for (const rr of [30, 60, 90, 120]) {
-    rctx.beginPath(); rctx.arc(R, R, rr / RANGE * R, 0, 7); rctx.stroke();
+    rctx.beginPath(); rctx.arc(R, R, rr / RANGE * R, 0, Math.PI * 2); rctx.stroke();
     rctx.fillStyle = 'rgba(53,255,158,.5)'; rctx.font = '9px "IBM Plex Mono"';
     rctx.fillText(rr + ' km', R + 3, R - rr / RANGE * R - 2);
   }
   rctx.beginPath(); rctx.moveTo(0, R); rctx.lineTo(560, R); rctx.moveTo(R, 0); rctx.lineTo(R, 560); rctx.stroke();
-  // roads hint within range
+  // roads hint within range (use pre-projected ENU)
   rctx.strokeStyle = 'rgba(53,255,158,.14)';
   for (const f of state.d.roads.features) {
     if (!['motorway', 'trunk'].includes(f.properties.highway)) continue;
+    const cs = f.geometry._p;
+    if (!cs) continue;
     rctx.beginPath(); let started = false;
-    for (const [lon, lat] of f.geometry.coordinates) {
-      const e = (lon - LON0) * KX, n = -(lat - LAT0) * KY;
-      if (Math.hypot(e, n) > RANGE) { started = false; continue; }
-      const x = R + e / RANGE * R, y = R - n / RANGE * R;
+    for (const [ex, ey] of cs) {
+      if (Math.hypot(ex, ey) > RANGE) { started = false; continue; }
+      const x = R + ex / RANGE * R, y = R - ey / RANGE * R;
       if (!started) { rctx.moveTo(x, y); started = true; } else rctx.lineTo(x, y);
     }
     rctx.stroke();
   }
-  // sweep
   sweep += 0.017;
-  const g = rctx.createConicGradient ? null : null;
   rctx.save(); rctx.translate(R, R); rctx.rotate(sweep);
   const grad = rctx.createLinearGradient(0, 0, R, 0);
   grad.addColorStop(0, 'rgba(53,255,158,.45)'); grad.addColorStop(1, 'rgba(53,255,158,.0)');
@@ -607,7 +620,6 @@ function drawRadar() {
   rctx.arc(0, 0, R, -0.35, 0); rctx.closePath(); rctx.fill();
   rctx.strokeStyle = 'rgba(150,255,210,.9)'; rctx.beginPath(); rctx.moveTo(0, 0); rctx.lineTo(R, 0); rctx.stroke();
   rctx.restore();
-  // aircraft blips
   const now = state.time / 1000;
   rctx.font = '9px "IBM Plex Mono"';
   for (const f of live.flights) {
@@ -616,7 +628,7 @@ function drawRadar() {
     const x = R + e / RANGE * R, y = R - n / RANGE * R;
     const ang = (Math.atan2(x - R, -(y - R)) * 180 / Math.PI + 360) % 360;
     const sw = (sweep * 180 / Math.PI + 360) % 360;
-    let age = (sw - ang + 360) % 360 / 360 * 4; // sweep period ~4 s
+    let age = (sw - ang + 360) % 360 / 360 * 4;
     const bright = Math.max(0.12, 1 - age / 4);
     rctx.fillStyle = `rgba(150,255,210,${bright})`;
     rctx.fillRect(x - 2, y - 2, 4, 4);
@@ -625,7 +637,6 @@ function drawRadar() {
       rctx.fillText(`${f.callsign.slice(0, 7)} ${Math.round(f.geoAlt * 3.281 / 1000).toString().padStart(3, '0')}`, x + 5, y + 2);
     }
   }
-  // ISS if in range (rare but magical)
   if (state.issNow && Math.hypot((state.issNow.lon - LON0) * KX, (state.issNow.lat - LAT0) * KY) < RANGE) {
     const x = R + (state.issNow.lon - LON0) * KX / RANGE * R, y = R - (state.issNow.lat - LAT0) * KY / RANGE * R;
     rctx.fillStyle = '#4fd8ff'; rctx.fillText('SAT', x + 4, y);
@@ -720,7 +731,7 @@ function buildGotolist() {
   }
 }
 
-/* ------------------------------------------------------------------ panels */
+/* ------------------------------------------------------------------ panels + live intel fusion */
 function hubDistanceTable() {
   const HUBS = [
     ['London Waterloo', -0.1139, 51.5031], ['Reading', -0.9710, 51.4543],
@@ -733,7 +744,74 @@ function hubDistanceTable() {
   return HUBS.map(([n, lon, lat]) => [n, haversine(LON0, LAT0, lon, lat) / 1000, bearing(LON0, LAT0, lon, lat)])
     .sort((a, b) => a[1] - b[1]);
 }
+
+/* Live intel fusion engine — cross-references all live feeds and populates
+   synthesized alerts + situational awareness data on the `live` object. */
+function analyseSituation() {
+  const report = { alerts: [], summary: '', wxTrend: '' };
+
+  // Weather trend
+  if (live.wx) {
+    const p = live.wx.press || 0;
+    report.wxTrend = p > 1025 ? 'HIGH' : p > 1015 ? 'rising' : p > 1005 ? 'stable' : 'LOW (depression)';
+    if (live.wx.lightning > 60) report.alerts.push(`⚡ High lightning potential: ${live.wx.lightning}%`);
+  }
+
+  // Nearest flight
+  if (live.flights.length) {
+    let nearest = null, nearDist = 1e9;
+    for (const f of live.flights) {
+      const d = haversine(LON0, LAT0, f.lon, f.lat);
+      if (d < nearDist) { nearDist = d; nearest = f; }
+    }
+    if (nearest) {
+      const km = nearDist / 1000;
+      const etaMin = nearest.speed > 10 ? (km / nearest.speed * 60).toFixed(1) : '?';
+      report.nearestFlight = { callsign: nearest.callsign, km, alt: nearest.geoAlt, heading: nearest.heading, etaMin };
+      if (km < 15 && nearest.geoAlt < 1000) report.alerts.push(`✈ Low overflight: ${nearest.callsign} ${km.toFixed(1)} km @ ${Math.round(nearest.geoAlt * 3.281)} ft`);
+    }
+  }
+
+  // Nearest quake
+  if (live.quakes.length) {
+    let nearQ = null, qDist = 1e9;
+    for (const q of live.quakes) {
+      const d = haversine(LON0, LAT0, q.lon, q.lat);
+      if (d < qDist) { qDist = d; nearQ = q; }
+    }
+    if (nearQ) {
+      const km = qDist / 1000;
+      const travelS = km / 6; // ~6 km/s seismic wave
+      const travelMin = travelS > 60 ? Math.round(travelS / 60) + ' min' : Math.round(travelS) + ' s';
+      report.nearestQuake = { mag: nearQ.mag, place: nearQ.place, km, travelMin };
+      if (nearQ.mag >= 5 && km < 500) report.alerts.push(`🌍 Significant quake M${nearQ.mag.toFixed(1)} · ${km.toFixed(0)} km away (wave travel ~${travelMin})`);
+    }
+  }
+
+  // ISS pass imminent?
+  if (live.issPass) {
+    const until = live.issPass.start - Date.now();
+    if (until > 0 && until < 3600000) {
+      const min = Math.round(until / 60000);
+      report.alerts.push(`🛰 ISS pass in ${min} min — elevation ${live.issPass.maxEl.toFixed(0)}° ${compass(live.issPass.peakAz)}`);
+    }
+  }
+
+  // Build summary line
+  const parts = [];
+  if (report.nearestFlight) parts.push(`Closest: ${report.nearestFlight.callsign} ${report.nearestFlight.km.toFixed(1)} km`);
+  if (report.nearestQuake) parts.push(`Quake M${report.nearestQuake.mag.toFixed(1)} ${report.nearestQuake.km.toFixed(0)} km away`);
+  if (live.wx) parts.push(`WX ${live.wx.temp.toFixed(0)}°C ${live.wx.wind.toFixed(0)} km/h (${report.wxTrend})`);
+  report.summary = parts.join(' · ');
+
+  live.alerts = report.alerts;
+  live.situation = report;
+}
+
 function renderPanels() {
+  // Run live intel fusion first
+  analyseSituation();
+
   // ISS
   const p = live.issPass;
   $('#iss-body').innerHTML = p ? `
@@ -759,7 +837,21 @@ function renderPanels() {
     `<div class="frow"><span>grid ref</span><b class="num">${osGridRef(LON0, LAT0)}</b></div>` +
     hubs.map(([n, km, brg]) =>
       `<div class="frow"><span>${n}</span><b>${km.toFixed(0)} km · ${compass(brg)}</b></div>`).join('');
-  // local intel from real terrain data
+  // local intel — now dynamic synthesised situational awareness
+  const sit = live.situation;
+  let intelHtml = '';
+  if (sit && sit.summary) {
+    intelHtml += `<div class="frow"><span>status</span><b class="num">${sit.summary}</b></div>`;
+    if (sit.nearestFlight) {
+      intelHtml += `<div class="frow"><span>✈ nearest</span><b>${sit.nearestFlight.callsign} · ${sit.nearestFlight.km.toFixed(1)} km · ETA ${sit.nearestFlight.etaMin} min</b></div>`;
+    }
+    if (sit.nearestQuake) {
+      intelHtml += `<div class="frow"><span>🌍 quake</span><b>M${sit.nearestQuake.mag.toFixed(1)} · ${sit.nearestQuake.km.toFixed(0)} km (wave ~${sit.nearestQuake.travelMin})</b></div>`;
+    }
+    if (live.wx) {
+      intelHtml += `<div class="frow"><span>🌡 wx</span><b>${live.wx.temp.toFixed(0)}°C feels ${live.wx.feels.toFixed(0)}°C · ${live.wx.wind.toFixed(0)} km/h ${compass(live.wx.wdir)} · pressure ${sit.wxTrend}</b></div>`;
+    }
+  }
   if (!renderPanels.cached) {
     const st = terrainStats();
     renderPanels.cached = `
@@ -771,7 +863,7 @@ function renderPanels() {
       <div class="frow"><span>road segs (M/A)</span><b class="num">${state.d.roads.features.length}</b></div>
       <div class="frow"><span>rail segs</span><b class="num">${state.d.railways.features.filter(f=>f.geometry.type==='LineString').length}</b></div>`;
   }
-  $('#intel-body').innerHTML = renderPanels.cached;
+  $('#intel-body').innerHTML = intelHtml + (renderPanels.cached || '');
   // wx chip
   const w = live.wx;
   if (w) $('#wx-chip').textContent = `WX ${w.temp.toFixed(0)}°C · ${w.wind.toFixed(0)} km/h · ${w.cloud}% ☁`;
@@ -802,8 +894,17 @@ function buildTicker() {
   $('#ticker-track').textContent = items.join('  ///  ') + '  ///  ';
 }
 
+/* Live situation ticker override — replaces static ticker with rotating alerts */
+let alertIdx = 0;
+setInterval(() => {
+  if (live.alerts && live.alerts.length) {
+    alertIdx = (alertIdx + 1) % live.alerts.length;
+    const ticker = $('#ticker-track');
+    if (ticker) ticker.textContent = '⚠ ' + live.alerts[alertIdx] + '  ///  ';
+  }
+}, 8000);
+
 function refreshTlesLive() {
-  // try live CelesTrak; on CORS/network failure fall back to the frozen snapshot
   fetch('/proxy?url=' + encodeURIComponent('https://celestrak.org/NORAD/elements/gp.php?CATNR=25544&FORMAT=TLE'))
     .then(r => { if (!r.ok) throw new Error(); return r.text(); })
     .then(txt => {
