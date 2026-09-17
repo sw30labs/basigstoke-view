@@ -1,0 +1,744 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T14:00:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 28398733,
+  "lat": 51.2656522,
+  "lon": -1.0431514,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG24 7HR",
+    "addr:street": "Linden Avenue",
+    "addr:village": "Old Basing",
+    "brand": "Co-op Food",
+    "brand:wikidata": "Q3277439",
+    "check_date": "2024-07-15",
+    "check_date:opening_hours": "2024-07-15",
+    "fhrs:id": "841201",
+    "name": "Co-op Food",
+    "opening_hours": "Mo-Su 07:00-22:00",
+    "operator": "The Co-operative Group",
+    "operator:wikidata": "Q117202",
+    "shop": "supermarket",
+    "website": "https://www.coop.co.uk/store-finder/RG24-7HR/linden-avenue",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 177568808,
+  "lat": 51.2453962,
+  "lon": -1.1143101,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "3",
+    "addr:postcode": "RG22 4EH",
+    "addr:street": "Brighton Hill Centre",
+    "amenity": "pharmacy",
+    "healthcare": "pharmacy",
+    "name": "Brighton Hill Pharmacy",
+    "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-17:00",
+    "postal_code": "RG22 4EH",
+    "website": "https://www.brightonhillpharmacy.com"
+  }
+},
+{
+  "type": "node",
+  "id": 247490542,
+  "lat": 51.2579890,
+  "lon": -1.0964356,
+  "tags": {
+    "amenity": "pharmacy",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "S R Pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 289766295,
+  "lat": 51.2773282,
+  "lon": -1.0792737,
+  "tags": {
+    "amenity": "pharmacy",
+    "dispensing": "yes",
+    "healthcare": "pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 308859125,
+  "lat": 51.2680329,
+  "lon": -1.1237382,
+  "tags": {
+    "amenity": "pharmacy",
+    "dispensing": "yes",
+    "healthcare": "pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 317846713,
+  "lat": 51.2295516,
+  "lon": -1.1417544,
+  "tags": {
+    "amenity": "pharmacy",
+    "brand": "Boots",
+    "brand:wikidata": "Q6123139",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Boots",
+    "website": "https://www.boots.com/stores/5315-basingstoke-health-centre-rg22-4aq"
+  }
+},
+{
+  "type": "node",
+  "id": 353121292,
+  "lat": 51.2809166,
+  "lon": -1.0905426,
+  "tags": {
+    "amenity": "pharmacy",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Fast Fare Pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 428915001,
+  "lat": 51.2949822,
+  "lon": -1.0518296,
+  "tags": {
+    "amenity": "pharmacy",
+    "healthcare": "pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 451139603,
+  "lat": 51.2624642,
+  "lon": -1.0847290,
+  "tags": {
+    "name": "New Cash And Carry",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 473902849,
+  "lat": 51.2725647,
+  "lon": -1.0446834,
+  "tags": {
+    "amenity": "pharmacy",
+    "brand": "Day Lewis Pharmacy",
+    "brand:wikidata": "Q62563772",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Day Lewis Pharmacy",
+    "opening_hours": "Mo-Fr 09:00-18:00",
+    "website": "https://www.daylewis.co.uk/pharmacy-page/old-basing-hampshire/"
+  }
+},
+{
+  "type": "node",
+  "id": 616840981,
+  "lat": 51.2671636,
+  "lon": -1.0862517,
+  "tags": {
+    "amenity": "pharmacy",
+    "healthcare": "pharmacy",
+    "name": "Assura Pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 2067558441,
+  "lat": 51.2833854,
+  "lon": -1.0585047,
+  "tags": {
+    "amenity": "pharmacy",
+    "brand": "Tesco",
+    "brand:wikidata": "Q487494",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Tesco Pharmacy",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2108091879,
+  "lat": 51.2565064,
+  "lon": -1.1136921,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "South Ham Health Centre",
+    "addr:postcode": "RG22 6ER",
+    "addr:street": "St. Andrew's Road",
+    "amenity": "pharmacy",
+    "brand": "Boots",
+    "brand:wikidata": "Q6123139",
+    "contact:phone": "+441256479118",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Boots",
+    "website": "https://www.boots.com/stores/1027-basingstoke-sh-health-centre-rg22-6er"
+  }
+},
+{
+  "type": "node",
+  "id": 2187580310,
+  "lat": 51.2668912,
+  "lon": -1.0882314,
+  "tags": {
+    "addr:housenumber": "15",
+    "addr:postcode": "RG21 7LW",
+    "addr:street": "Old Basing Mall",
+    "amenity": "pharmacy",
+    "brand": "Boots",
+    "brand:wikidata": "Q6123139",
+    "brand:wikipedia": "en:Boots UK",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "level": "0",
+    "name": "Boots",
+    "opening_hours": "Mo-Fr 08:30-19:00; Sa 08:30-18:00; Su 10:30-16:30",
+    "phone": "+44 1256 351611",
+    "website": "https://www.boots.com/stores/222-basingstoke-old-mall-rg21-7lw",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2611369947,
+  "lat": 51.2456694,
+  "lon": -1.1133848,
+  "tags": {
+    "amenity": "pharmacy",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "name": "Neil's Pharmacy"
+  }
+},
+{
+  "type": "node",
+  "id": 8195368146,
+  "lat": 51.2344067,
+  "lon": -1.1416991,
+  "tags": {
+    "addr:country": "GB",
+    "addr:housename": "Hatch Warren Retail Park",
+    "addr:postcode": "RG22 4TT",
+    "addr:street": "Wallop Drive",
+    "addr:unit": "1,2",
+    "brand": "Lidl",
+    "brand:wikidata": "Q151954",
+    "brand:wikipedia": "en:Lidl",
+    "fhrs:id": "1316965",
+    "name": "Lidl",
+    "shop": "supermarket",
+    "website": "https://www.lidl.co.uk/s/en-GB/store-finder/basingstoke/hatch-warren-retail-park-wallop-drive/"
+  }
+},
+{
+  "type": "node",
+  "id": 9868013687,
+  "lat": 51.2296108,
+  "lon": -1.1423470,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "57-58",
+    "addr:postcode": "RG22 4AQ",
+    "addr:street": "Broadmere Road",
+    "addr:village": "Beggarwood",
+    "alt_name": "Southern Co-Operative",
+    "brand": "The Co-operative Food",
+    "brand:wikidata": "Q107617274",
+    "check_date:opening_hours": "2023-09-08",
+    "fhrs:id": "15678",
+    "loc_name": "The Co-Op",
+    "name": "The Co-operative Food",
+    "opening_hours": "Mo-Su 07:00-22:00",
+    "operator": "The Southern Co-operative",
+    "operator:wikidata": "Q7569773",
+    "shop": "supermarket",
+    "website": "https://stores.southern.coop/hampshire/basingstoke/57---58-broadmere-road.html"
+  }
+},
+{
+  "type": "node",
+  "id": 12157424256,
+  "lat": 51.2662479,
+  "lon": -1.0885529,
+  "tags": {
+    "addr:postcode": "RG21 7AW",
+    "contact:instagram": "https://www.instagram.com/basingstoke_oriental_mart",
+    "cuisine": "asian",
+    "level": "0",
+    "name": "Oriental Mart",
+    "opening_hours": "Mo-Sa 09:00-19:00; Su 09:00-18:00",
+    "origin": "asian",
+    "shop": "supermarket",
+    "start_date": "2025-03-15",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12161076613,
+  "lat": 51.2622607,
+  "lon": -1.0886112,
+  "tags": {
+    "check_date": "2025-10-10",
+    "diet:halal": "only",
+    "level": "0",
+    "name": "Madina Halal Supermarket",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 13246377436,
+  "lat": 51.2670852,
+  "lon": -1.0886071,
+  "tags": {
+    "name": "Delikatesy Smaczek",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 13359590408,
+  "lat": 51.2624394,
+  "lon": -1.0883298,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "20",
+    "addr:street": "Winchester Street",
+    "contact:facebook": "honeyandgheeBasingstoke",
+    "name": "Honey & Ghee Grocers",
+    "opening_hours": "Mo-Su 08:00-21:45",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "node",
+  "id": 13738132472,
+  "lat": 51.2669320,
+  "lon": -1.0882507,
+  "tags": {
+    "amenity": "pharmacy",
+    "brand": "Boots",
+    "brand:wikidata": "Q6123139",
+    "healthcare": "pharmacy",
+    "name": "Boots"
+  }
+},
+{
+  "type": "way",
+  "id": 23824886,
+  "center": {
+    "lat": 51.2637430,
+    "lon": -1.1032502
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Thornycroft Industrial Estate",
+    "addr:postcode": "RG21 8BJ",
+    "addr:street": "Worting Road",
+    "brand": "Morrisons",
+    "brand:wikidata": "Q922344",
+    "brand:wikipedia": "en:Morrisons",
+    "building": "yes",
+    "fhrs:id": "89916",
+    "name": "Morrisons",
+    "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+    "shop": "supermarket",
+    "website": "https://my.morrisons.com/storefinder/345/basingstoke"
+  }
+},
+{
+  "type": "way",
+  "id": 25561486,
+  "center": {
+    "lat": 51.2441960,
+    "lon": -1.1135151
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:postcode": "RG22 4DH",
+    "addr:street": "Brighton Way",
+    "brand": "Asda",
+    "brand:wikidata": "Q297410",
+    "brand:wikipedia": "en:Asda",
+    "building": "yes",
+    "check_date": "2024-08-18",
+    "check_date:opening_hours": "2024-08-18",
+    "contact:facebook": "https://www.facebook.com/asdabasingstoke/",
+    "contact:twitter": "asda",
+    "contact:website": "https://storelocator.asda.com/south-east/basingstoke/brighton-way-brighton-hill",
+    "fhrs:id": "8567",
+    "name": "Asda",
+    "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+    "operator": "Asda Stores Ltd",
+    "shop": "supermarket",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 27806619,
+  "center": {
+    "lat": 51.2626790,
+    "lon": -1.1184198
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:postcode": "RG22 6PE",
+    "addr:street": "Worting Road",
+    "brand": "Lidl",
+    "brand:wikidata": "Q151954",
+    "building": "retail",
+    "fhrs:id": "840775",
+    "name": "Lidl",
+    "shop": "supermarket",
+    "website": "https://www.lidl.co.uk/s/en-GB/store-finder/basingstoke/churchill-way-west/worting-road/"
+  }
+},
+{
+  "type": "way",
+  "id": 157921408,
+  "center": {
+    "lat": 51.2838717,
+    "lon": -1.0601776
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG24 8BQ",
+    "amenity": "pharmacy",
+    "brand": "Boots",
+    "brand:wikidata": "Q6123139",
+    "brand:wikipedia": "en:Boots UK",
+    "building": "retail",
+    "dispensing": "yes",
+    "fhrs:id": "840703",
+    "healthcare": "pharmacy",
+    "name": "Boots",
+    "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su 10:00-16:00",
+    "website": "https://www.boots.com/stores/6474-basingstoke-chineham-rg24-8bq",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 157921412,
+  "center": {
+    "lat": 51.2837928,
+    "lon": -1.0604588
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG24 8BQ",
+    "brand": "Marks & Spencer",
+    "brand:short": "M&S",
+    "brand:wikidata": "Q714491",
+    "brand:wikipedia": "en:Marks & Spencer",
+    "building": "retail",
+    "check_date": "2024-07-21",
+    "check_date:opening_hours": "2024-07-21",
+    "contact:website": "https://www.marksandspencer.com/stores/chineham-simply-food-5349",
+    "fhrs:id": "335266",
+    "name": "M&S Foodhall",
+    "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-16:00",
+    "shop": "supermarket",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 157921420,
+  "center": {
+    "lat": 51.2836382,
+    "lon": -1.0586930
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Chineham Shopping Centre",
+    "addr:postcode": "RG24 8BE",
+    "branch": "Basingstoke",
+    "brand": "Tesco",
+    "brand:wikidata": "Q487494",
+    "brand:wikipedia": "en:Tesco",
+    "building": "retail",
+    "contact:website": "https://www.tesco.com/store-locator/basingstoke/district-shopping-centre",
+    "fhrs:id": "20629",
+    "name": "Tesco",
+    "opening_hours": "Mo-Sa 06:00-00:00; Su 10:00-16:00; easter [-2] 06:00-22:00; easter [-1] 06:00-00:00; easter off; easter [+1] 08:00-18:00; 2025 May 26 10:00-20:00",
+    "shop": "supermarket",
+    "source": "bing",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 196412678,
+  "center": {
+    "lat": 51.2353284,
+    "lon": -1.1392340
+  },
+  "tags": {
+    "addr:housenumber": "3",
+    "addr:postcode": "RG22 4TW",
+    "addr:street": "Wallop Drive",
+    "branch": "Basingstoke",
+    "brand": "Sainsbury's",
+    "brand:wikidata": "Q152096",
+    "brand:wikipedia": "en:Sainsbury's",
+    "building": "yes",
+    "fhrs:id": "87338",
+    "name": "Sainsbury's",
+    "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+    "phone": "+44 1256 468405",
+    "shop": "supermarket",
+    "toilets": "yes",
+    "website": "https://stores.sainsburys.co.uk/0665/kempshott",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 281700203,
+  "center": {
+    "lat": 51.2766978,
+    "lon": -1.0574306
+  },
+  "tags": {
+    "addr:postcode": "RG24 8TF",
+    "addr:street": "Great Binfields Road",
+    "brand": "Tesco Express",
+    "brand:wikidata": "Q98456772",
+    "building": "retail",
+    "building:levels": "1",
+    "fhrs:id": "840852",
+    "name": "Tesco Express",
+    "opening_hours": "07:00-23:00",
+    "self_checkout": "yes",
+    "shop": "supermarket"
+  }
+},
+{
+  "type": "way",
+  "id": 349187304,
+  "center": {
+    "lat": 51.2732070,
+    "lon": -1.1130077
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG23 8BB",
+    "addr:street": "Winklebury Way",
+    "brand": "Aldi",
+    "brand:wikidata": "Q41171672",
+    "building": "retail",
+    "fhrs:id": "1178872",
+    "name": "Aldi",
+    "shop": "supermarket",
+    "source:addr": "FHRS Open Data",
+    "website": "https://www.aldi.co.uk/store-finder/l/basingstoke/winklebury-way/c485"
+  }
+},
+{
+  "type": "way",
+  "id": 634196936,
+  "center": {
+    "lat": 51.2503587,
+    "lon": -1.1070818
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:housenumber": "Unit 1",
+    "addr:parentstreet": "The Harrow Way",
+    "addr:place": "St Michael's Retail Park",
+    "addr:postcode": "RG22 4AZ",
+    "brand": "Aldi",
+    "brand:wikidata": "Q41171672",
+    "building": "retail",
+    "contact:website": "https://www.aldi.co.uk/store-finder/l/basingstoke/unit-1-st-michaels-retail-par/c477",
+    "fhrs:id": "1102048",
+    "name": "Aldi",
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 10:00-16:00",
+    "shop": "supermarket",
+    "source": "survey",
+    "source:addr": "till receipt",
+    "source:outline": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 686198298,
+  "center": {
+    "lat": 51.2833244,
+    "lon": -1.0693706
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:housename": "Gastons Wood",
+    "addr:postcode": "RG24 8TW",
+    "addr:street": "Reading Road",
+    "alt_name": "Lidl Chineham",
+    "brand": "Lidl",
+    "brand:wikidata": "Q151954",
+    "brand:wikipedia": "en:Lidl",
+    "building": "retail",
+    "fhrs:id": "842520",
+    "name": "Lidl",
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 10:00-16:00; PH 08:00-20:00",
+    "operator": "Lidl",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:visa": "yes",
+    "shop": "supermarket",
+    "website": "https://www.lidl.co.uk/s/en-GB/store-finder/basingstoke/gastons-wood/"
+  }
+},
+{
+  "type": "way",
+  "id": 701335781,
+  "center": {
+    "lat": 51.2658486,
+    "lon": -1.0881299
+  },
+  "tags": {
+    "addr:housenumber": "01-10",
+    "addr:postcode": "RG21 7LG",
+    "amenity": "pharmacy",
+    "brand": "Superdrug",
+    "brand:wikidata": "Q7643261",
+    "brand:wikipedia": "en:Superdrug",
+    "building": "yes",
+    "contact:website": "https://www.superdrug.com/store/basingstoke",
+    "dispensing": "yes",
+    "healthcare": "pharmacy",
+    "level": "0",
+    "name": "Superdrug",
+    "opening_hours": "Mo-Fr 08:30-19:00; Sa 08:30-18:00; Su 11:00-17:00"
+  }
+},
+{
+  "type": "way",
+  "id": 945121889,
+  "center": {
+    "lat": 51.2824653,
+    "lon": -1.1171822
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG24 9RG",
+    "addr:street": "Park Prewett Road",
+    "amenity": "pharmacy",
+    "building": "yes",
+    "dispensing": "yes",
+    "drive_through": "no",
+    "healthcare": "pharmacy",
+    "name": "Rooksdown Pharmacy",
+    "opening_hours": "Mo-Fr 09:00-12:00,13:00-18:00; Sa 08:00-12:00",
+    "operator": "Independant",
+    "phone": "+441256320303",
+    "website": "https://rooksdownpharmacy.co.uk"
+  }
+},
+{
+  "type": "way",
+  "id": 997425538,
+  "center": {
+    "lat": 51.2682582,
+    "lon": -1.0821584
+  },
+  "tags": {
+    "air_conditioning": "yes",
+    "brand": "Waitrose",
+    "brand:wikidata": "Q771734",
+    "brand:wikipedia": "en:Waitrose",
+    "building": "retail",
+    "building:levels": "4",
+    "fhrs:id": "840489",
+    "layer": "0",
+    "name": "Waitrose",
+    "nohousenumber": "yes",
+    "official_name": "Waitrose & Partners",
+    "opening_hours": "Mo-Sa 07:30-20:00; Su 10:00-16:00",
+    "shop": "supermarket",
+    "website": "https://www.waitrose.com/find-a-store/basingstoke"
+  }
+},
+{
+  "type": "way",
+  "id": 1013734114,
+  "center": {
+    "lat": 51.2512235,
+    "lon": -1.1069187
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "4",
+    "addr:parentstreet": "Winchester Road",
+    "addr:place": "St Michael's Retail Park",
+    "addr:postcode": "RG22 4AZ",
+    "brand": "The Food Warehouse",
+    "brand:wikidata": "Q87263899",
+    "building": "retail",
+    "fhrs:id": "1257240",
+    "name": "The Food Warehouse",
+    "not:addr:postcode": "RG22 4AN",
+    "shop": "supermarket",
+    "source:addr": "FHRS Open Data",
+    "source:addr:postcode": "ons_uprn_directory",
+    "website": "https://www.thefoodwarehouse.com/store-locator/basingstoke"
+  }
+},
+{
+  "type": "way",
+  "id": 1039681887,
+  "center": {
+    "lat": 51.2675309,
+    "lon": -1.0872705
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Station Mall",
+    "addr:housenumber": "1,2",
+    "addr:postcode": "RG21 7DW",
+    "addr:street": "Station Mall",
+    "brand": "Sainsbury's",
+    "brand:wikidata": "Q152096",
+    "brand:wikipedia": "en:Sainsbury's",
+    "fhrs:id": "81314",
+    "layer": "-1",
+    "name": "Sainsbury's",
+    "opening_hours": "Mo-Sa 07:00-20:00; Su 11:00-17:00",
+    "phone": "+44 1256 354101",
+    "shop": "supermarket",
+    "website": "https://stores.sainsburys.co.uk/0167/basingstoke",
+    "wheelchair": "yes"
+  }
+}
+
+  ]
+}

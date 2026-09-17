@@ -1,0 +1,2168 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T14:00:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 27595108,
+  "lat": 51.2751302,
+  "lon": -1.0448675,
+  "tags": {
+    "amenity": "pub",
+    "fhrs:id": "1731135",
+    "name": "Bolton Arms",
+    "wikidata": "Q26385092"
+  }
+},
+{
+  "type": "node",
+  "id": 27595112,
+  "lat": 51.2732961,
+  "lon": -1.0530255,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Bartons Mill",
+    "addr:postcode": "RG24 8AE",
+    "addr:street": "Bartons Lane",
+    "amenity": "pub",
+    "fhrs:id": "4860",
+    "name": "Bartons Mill Pub & Restaurant",
+    "phone": "+441256 331153",
+    "website": "https://www.bartonsmillpubanddining.co.uk"
+  }
+},
+{
+  "type": "node",
+  "id": 27595126,
+  "lat": 51.2703456,
+  "lon": -1.0509327,
+  "tags": {
+    "amenity": "pub",
+    "fhrs:id": "1795339",
+    "name": "The Crown",
+    "wikidata": "Q26385124"
+  }
+},
+{
+  "type": "node",
+  "id": 140446449,
+  "lat": 51.2392696,
+  "lon": -1.0971897,
+  "tags": {
+    "amenity": "pub",
+    "fhrs:id": "1685309",
+    "fixme": "check note tag still applies",
+    "name": "The Jolly Farmer",
+    "note": "The lack of capitalisation and spaces is from the pub's sign and literature",
+    "wikidata": "Q26385269"
+  }
+},
+{
+  "type": "node",
+  "id": 183195145,
+  "lat": 51.2601609,
+  "lon": -1.0887435,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housenumber": "81",
+    "addr:postcode": "RG21 3BZ",
+    "addr:street": "Bounty Road",
+    "amenity": "pub",
+    "fhrs:id": "1527610",
+    "name": "Bounty Inn",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 203118094,
+  "lat": 51.2684341,
+  "lon": -1.0397767,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Basing Chinese Takeaway",
+    "note": "chinese takeaway"
+  }
+},
+{
+  "type": "node",
+  "id": 246674191,
+  "lat": 51.2585284,
+  "lon": -1.0967740,
+  "tags": {
+    "amenity": "pub",
+    "name": "King of Wessex"
+  }
+},
+{
+  "type": "node",
+  "id": 259572372,
+  "lat": 51.2640299,
+  "lon": -1.0922188,
+  "tags": {
+    "amenity": "pub",
+    "name": "Hare & Hounds"
+  }
+},
+{
+  "type": "node",
+  "id": 268518008,
+  "lat": 51.2585433,
+  "lon": -1.0717817,
+  "tags": {
+    "amenity": "pub",
+    "name": "The Rucstall"
+  }
+},
+{
+  "type": "node",
+  "id": 286303923,
+  "lat": 51.2764380,
+  "lon": -1.0972271,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Soldiers Return",
+    "addr:housenumber": "80",
+    "addr:postcode": "RG21 5RP",
+    "addr:street": "Upper Sherborne Road",
+    "amenity": "pub",
+    "fhrs:id": "608686",
+    "name": "The Soldiers Return",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 299856454,
+  "lat": 51.2518937,
+  "lon": -1.1347998,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "149A",
+    "addr:postcode": "RG22 5HN",
+    "addr:street": "Pack Lane",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "fhrs:id": "69728",
+    "name": "The Spice Restaurant",
+    "website": "https://thespicebasingstoke.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 316135571,
+  "lat": 51.2561141,
+  "lon": -1.1334333,
+  "tags": {
+    "amenity": "pub",
+    "name": "The Buckskin"
+  }
+},
+{
+  "type": "node",
+  "id": 326937380,
+  "lat": 51.2763892,
+  "lon": -1.0580239,
+  "tags": {
+    "amenity": "pub",
+    "name": "Cromwell Inn"
+  }
+},
+{
+  "type": "node",
+  "id": 330131093,
+  "lat": 51.2716060,
+  "lon": -1.1137505,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG23 8BA",
+    "addr:street": "Winklebury Way",
+    "amenity": "pub",
+    "fhrs:id": "1468096",
+    "name": "The Winkle",
+    "opening_hours": "Mo-Fr 15:00-20:00; Sa,Su 14:00-20:00",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 330303845,
+  "lat": 51.2746306,
+  "lon": -1.1167001,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG23 8LE",
+    "addr:street": "Elmwood Way",
+    "amenity": "pub",
+    "fhrs:id": "840794",
+    "name": "Wellington Social Club",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 344527162,
+  "lat": 51.2686331,
+  "lon": -1.0882339,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Basingstoke Railway Station",
+    "addr:postcode": "RG21 5NE",
+    "addr:street": "Station Approach",
+    "amenity": "cafe",
+    "fhrs:id": "508090",
+    "name": "Cafe destino"
+  }
+},
+{
+  "type": "node",
+  "id": 344527163,
+  "lat": 51.2683439,
+  "lon": -1.0875868,
+  "tags": {
+    "amenity": "cafe",
+    "name": "AM & PM Cafe Bar"
+  }
+},
+{
+  "type": "node",
+  "id": 353118376,
+  "lat": 51.2691876,
+  "lon": -1.0877246,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG21 5NB",
+    "addr:street": "Station Approach",
+    "amenity": "pub",
+    "fhrs:id": "81235",
+    "name": "Basingstoke Railway Social Club"
+  }
+},
+{
+  "type": "node",
+  "id": 364428482,
+  "lat": 51.2942813,
+  "lon": -1.1060524,
+  "tags": {
+    "access": "private",
+    "amenity": "pub",
+    "fhrs:id": "840792",
+    "name": "Sherborne St John Social Club"
+  }
+},
+{
+  "type": "node",
+  "id": 408480483,
+  "lat": 51.2976268,
+  "lon": -1.0565457,
+  "tags": {
+    "amenity": "pub",
+    "brand": "Fuller's",
+    "brand:wikidata": "Q5253950",
+    "fhrs:id": "32047",
+    "name": "The Chineham Arms",
+    "website": "https://www.chinehamarms.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 408492652,
+  "lat": 51.2860820,
+  "lon": -1.0674445,
+  "tags": {
+    "addr:postcode": "RG24 8LN",
+    "addr:street": "Reading Road",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "name": "Chineham Indian Cuisine",
+    "opening_hours": "Mo-Su 12:00-14:30, 17:30-23:30",
+    "phone": "+44 1256 322513",
+    "self_service": "no",
+    "website:menu": "https://www.facebook.com/chinehamindian/"
+  }
+},
+{
+  "type": "node",
+  "id": 451139604,
+  "lat": 51.2623150,
+  "lon": -1.0850808,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housenumber": "25",
+    "addr:postcode": "RG21 7PG",
+    "addr:street": "London Street",
+    "amenity": "restaurant",
+    "fhrs:id": "21690",
+    "name": "The Lime Leaf"
+  }
+},
+{
+  "type": "node",
+  "id": 451139610,
+  "lat": 51.2623534,
+  "lon": -1.0854147,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Tuli",
+    "addr:housenumber": "19,19A",
+    "addr:postcode": "RG21 7NT",
+    "addr:street": "London Street",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "fhrs:id": "55681",
+    "name": "Tuli"
+  }
+},
+{
+  "type": "node",
+  "id": 451139612,
+  "lat": 51.2623524,
+  "lon": -1.0855034,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "italian",
+    "name": "Galletto"
+  }
+},
+{
+  "type": "node",
+  "id": 451139620,
+  "lat": 51.2623509,
+  "lon": -1.0878648,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "The Maidenhead Inn",
+    "addr:housenumber": "17",
+    "addr:postcode": "RG21 7ED",
+    "addr:street": "Winchester Street",
+    "amenity": "pub",
+    "brand": "Wetherspoon",
+    "brand:wikidata": "Q6109362",
+    "brand:wikipedia": "en:Wetherspoons",
+    "dog": "no",
+    "fhrs:id": "89168",
+    "indoor_seating": "yes",
+    "internet_access": "wlan",
+    "name": "The Maidenhead Inn",
+    "outdoor_seating": "yes",
+    "website": "https://www.jdwetherspoon.com/pubs/all-pubs/england/hampshire/the-maidenhead-inn-basingstoke",
+    "website:menu": "https://order.jdwetherspoon.com/venue/jdw/2803/menus",
+    "wikidata": "Q88916040"
+  }
+},
+{
+  "type": "node",
+  "id": 470310396,
+  "lat": 51.2630419,
+  "lon": -1.0867075,
+  "tags": {
+    "amenity": "pub",
+    "indoor_seating": "yes",
+    "min_age": "21",
+    "name": "Laarsons",
+    "outdoor_seating": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 470310397,
+  "lat": 51.2627683,
+  "lon": -1.0867108,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Dayers Fine Food"
+  }
+},
+{
+  "type": "node",
+  "id": 470310414,
+  "lat": 51.2633415,
+  "lon": -1.0865478,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housenumber": "19",
+    "addr:postcode": "RG21 7NE",
+    "addr:street": "Wote Street",
+    "air_conditioning": "yes",
+    "amenity": "restaurant",
+    "changing_table": "no",
+    "check_date": "2025-11-22",
+    "cuisine": "indian",
+    "diet:vegetarian": "yes",
+    "fhrs:id": "1070486",
+    "highchair": "yes",
+    "indoor_seating": "yes",
+    "name": "Chennai Express",
+    "outdoor_seating": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "source:addr": "FHRS Open Data",
+    "takeaway": "yes",
+    "toilets": "yes",
+    "toilets:handwashing": "yes",
+    "toilets:num_chambers": "1",
+    "toilets:wheelchair": "no",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 470310444,
+  "lat": 51.2648646,
+  "lon": -1.0846075,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG21 7BB",
+    "addr:unit": "R10",
+    "amenity": "restaurant",
+    "brand": "Wagamama",
+    "brand:wikidata": "Q503715",
+    "brand:wikipedia": "en:Wagamama",
+    "cuisine": "asian",
+    "fhrs:id": "10127",
+    "fixme:addr:1": "Festival Place",
+    "indoor_seating": "yes",
+    "layer": "-1",
+    "name": "Wagamama",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr,Sa 11:00-23:00; Su 11:00-23:00",
+    "outdoor_seating": "yes",
+    "website": "https://www.wagamama.com/restaurants/basingstoke/basingstoke"
+  }
+},
+{
+  "type": "node",
+  "id": 497397570,
+  "lat": 51.2957213,
+  "lon": -1.0625591,
+  "tags": {
+    "amenity": "restaurant"
+  }
+},
+{
+  "type": "node",
+  "id": 515268214,
+  "lat": 51.2480234,
+  "lon": -1.0965978,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "name": "Towers"
+  }
+},
+{
+  "type": "node",
+  "id": 616882649,
+  "lat": 51.2650799,
+  "lon": -1.0858536,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Festival Place",
+    "addr:postcode": "RG21 7BE",
+    "addr:unit": "37",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "85658",
+    "indoor_seating": "yes",
+    "internet_access": "wlan",
+    "layer": "2",
+    "level": "1",
+    "name": "Costa",
+    "outdoor_seating": "no",
+    "takeaway": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 617004061,
+  "lat": 51.2653611,
+  "lon": -1.0843910,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "addr:unit": "R3",
+    "amenity": "restaurant",
+    "brand": "Las Iguanas",
+    "brand:wikidata": "Q19875012",
+    "check_date": "2024-07-16",
+    "check_date:opening_hours": "2024-07-16",
+    "cuisine": "brazilian;spanish;argentinian;portuguese;mexican",
+    "fhrs:id": "869502",
+    "fixme": "Does this still exist?",
+    "name": "Las Iguanas",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 11:00-22:30; Su 11:00-22:00",
+    "website": "https://www.iguanas.co.uk/restaurants/basingstoke"
+  }
+},
+{
+  "type": "node",
+  "id": 618333126,
+  "lat": 51.2634780,
+  "lon": -1.1036125,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Morrisons",
+    "brand:wikidata": "Q922344",
+    "cuisine": "coffee_shop",
+    "name": "Morrisons Cafe",
+    "opening_hours": "Mo-Sa 08:00-17:00; Su 09:30-16:00",
+    "takeaway": "yes",
+    "website": "https://my.morrisons.com/storefinder/345/basingstoke"
+  }
+},
+{
+  "type": "node",
+  "id": 1224010164,
+  "lat": 51.2562927,
+  "lon": -1.0869037,
+  "tags": {
+    "access": "private",
+    "air_conditioning": "yes",
+    "amenity": "cafe",
+    "check_date": "2025-01-14",
+    "check_date:diet:vegan": "2025-01-14",
+    "check_date:diet:vegetarian": "2025-01-14",
+    "check_date:smoking": "2025-01-14",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "name": "Cafe Q.M.",
+    "note": "QM students/staff only",
+    "outdoor_seating": "yes",
+    "payment:cash": "yes",
+    "smoking": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 2484445627,
+  "lat": 51.2586650,
+  "lon": -1.1240925,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "22A",
+    "addr:postcode": "RG22 6UJ",
+    "addr:street": "Burnaby Close",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "name": "Burnaby Bites"
+  }
+},
+{
+  "type": "node",
+  "id": 2860890738,
+  "lat": 51.2688427,
+  "lon": -1.0726167,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Belvedere House",
+    "addr:postcode": "RG21 4HG",
+    "addr:street": "Basing View",
+    "amenity": "cafe",
+    "fhrs:id": "1102047",
+    "name": "Hartley Kitchen",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 3176330271,
+  "lat": 51.2562903,
+  "lon": -1.1334367,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "chinese",
+    "fixme": "check position, name"
+  }
+},
+{
+  "type": "node",
+  "id": 3211241224,
+  "lat": 51.2448495,
+  "lon": -1.1139117,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "9",
+    "addr:postcode": "RG22 4EH",
+    "addr:street": "Brighton Hill Centre",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "fhrs:id": "8560",
+    "name": "Saffron Tandoori",
+    "opening_hours": "Mo-Su 12:00-14:00, 17:30-23:00",
+    "takeaway": "yes",
+    "website": "https://saffrontandoori.co.uk/",
+    "website:menu": "https://www.saffrontandoori.co.uk/order-item"
+  }
+},
+{
+  "type": "node",
+  "id": 4313352894,
+  "lat": 51.2678592,
+  "lon": -1.1237749,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "name": "Mr G's Cafe"
+  }
+},
+{
+  "type": "node",
+  "id": 4314013414,
+  "lat": 51.2725045,
+  "lon": -1.0633031,
+  "tags": {
+    "amenity": "cafe",
+    "name": "Buildbite Cafe",
+    "source": "sign"
+  }
+},
+{
+  "type": "node",
+  "id": 4991801722,
+  "lat": 51.2347531,
+  "lon": -1.1395218,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Sainsbury's",
+    "addr:postcode": "RG22 4TW",
+    "addr:street": "Wallop Drive",
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "1498280",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "operator": "Sainsbury's",
+    "outdoor_seating": "yes",
+    "source:addr": "FHRS Open Data",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/1033934/kempshott-sainsburys-3-wallop-drive-kempshott-eng-rg-22-4-tw-gb"
+  }
+},
+{
+  "type": "node",
+  "id": 5112813322,
+  "lat": 51.2718015,
+  "lon": -1.0623997,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG24 8NT",
+    "addr:street": "Roentgen Court",
+    "amenity": "cafe",
+    "cuisine": "burger;sandwich;breakfast;diner;coffee_shop",
+    "fhrs:id": "734799",
+    "internet_access": "wlan",
+    "name": "Charlie's Cafe",
+    "opening_hours": "Mo-Th 07:00-14:30; Fr 07:00-14:00; Sa 08:00-13:00",
+    "phone": "+44 7511197590"
+  }
+},
+{
+  "type": "node",
+  "id": 5750288519,
+  "lat": 51.2642336,
+  "lon": -1.0871990,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Chelsea House",
+    "addr:housenumber": "7",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "addr:street": "Festival Place",
+    "addr:unit": "R11",
+    "amenity": "restaurant",
+    "fhrs:id": "1708487",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Festival Street Kitchen",
+    "opening_hours": "Mo-Th 09:00-20:00; Fr,Sa 09:00-22:00; Su 09:30-16:30",
+    "outdoor_seating": "no",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 6081812081,
+  "lat": 51.2812494,
+  "lon": -1.0590694,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "sandwich",
+    "fhrs:id": "9957",
+    "name": "Grove House Bistro",
+    "opening_hours": "Mo-Fr 08:30-14:30"
+  }
+},
+{
+  "type": "node",
+  "id": 6997591721,
+  "lat": 51.2623560,
+  "lon": -1.0893820,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housenumber": "34",
+    "addr:postcode": "RG21 7EY",
+    "addr:street": "Winchester Street",
+    "amenity": "restaurant",
+    "cuisine": "curry",
+    "fhrs:id": "89171",
+    "indoor_seating": "yes",
+    "name": "Agra Balti House",
+    "outdoor_seating": "no",
+    "smoking": "no",
+    "takeaway": "yes",
+    "toilets:access": "customers",
+    "website": "https://www.agrabaltihouse.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 7040720100,
+  "lat": 51.2503055,
+  "lon": -1.1178135,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "7",
+    "addr:postcode": "RG22 6JW",
+    "addr:street": "Buckland Parade",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "fhrs:id": "8858",
+    "name": "The Red Rose Tandoori Restaurant",
+    "website": "https://theredrose.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 7508765487,
+  "lat": 51.2443183,
+  "lon": -1.1129612,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:postcode": "RG22 4DH",
+    "addr:street": "RG22 4DH",
+    "amenity": "cafe",
+    "brand": "Asda",
+    "brand:wikidata": "Q297410",
+    "brand:wikipedia": "en:Asda",
+    "check_date": "2024-08-18",
+    "check_date:opening_hours": "2024-08-18",
+    "contact:phone": "+44 1256 375100",
+    "contact:website": "https://storelocator.asda.com/south-east/basingstoke/brighton-way-brighton-hill/cafe",
+    "cuisine": "coffee_shop",
+    "drinking_water:refill": "yes",
+    "drinking_water:refill:network": "Refill",
+    "fhrs:id": "1224892",
+    "fixme": "Location not accurate",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Asda Café",
+    "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+    "operator": "Asda Stores Ltd",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 7910053520,
+  "lat": 51.2764144,
+  "lon": -1.0582337,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "name": "Cromwell Tandoori",
+    "phone": "+44 1256 476828",
+    "source": "sign"
+  }
+},
+{
+  "type": "node",
+  "id": 8266986155,
+  "lat": 51.2817260,
+  "lon": -1.1201254,
+  "tags": {
+    "addr:housenumber": "2",
+    "addr:postcode": "RG24 9RD",
+    "addr:street": "Greenlands Road",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "644292",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "internet_access:ssid": "O2 Wifi",
+    "name": "Costa",
+    "outdoor_seating": "yes",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 8764398722,
+  "lat": 51.2814658,
+  "lon": -1.0694072,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Dee Dee's Family Café",
+    "brand:wikidata": "Q120645741",
+    "cuisine": "coffee_shop",
+    "name": "Dee Dee's Family Café",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 8791788530,
+  "lat": 51.2809650,
+  "lon": -1.1093257,
+  "tags": {
+    "addr:housename": "North Hampshire Hospital",
+    "addr:postcode": "RG24 9NA",
+    "addr:street": "Aldermaston Road",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "35039",
+    "name": "Costa",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9209889778,
+  "lat": 51.2679465,
+  "lon": -1.0816722,
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Waitrose",
+    "level": "1",
+    "name": "Waitrose Cafe"
+  }
+},
+{
+  "type": "node",
+  "id": 9878651913,
+  "lat": 51.2637695,
+  "lon": -1.1430814,
+  "tags": {
+    "amenity": "cafe",
+    "name": "More of the Good Stuff"
+  }
+},
+{
+  "type": "node",
+  "id": 9902666038,
+  "lat": 51.2656738,
+  "lon": -1.0868760,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "bubble_tea",
+    "indoor_seating": "no",
+    "name": "Bubble CiTea",
+    "outdoor_seating": "no",
+    "takeaway": "only"
+  }
+},
+{
+  "type": "node",
+  "id": 9902666039,
+  "lat": 51.2654537,
+  "lon": -1.0874236,
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "cake",
+    "indoor_seating": "no",
+    "name": "La Vo Patisserie",
+    "outdoor_seating": "no",
+    "takeaway": "only"
+  }
+},
+{
+  "type": "node",
+  "id": 10539818171,
+  "lat": 51.2924709,
+  "lon": -1.0686612,
+  "tags": {
+    "air_conditioning": "yes",
+    "amenity": "cafe",
+    "brand": "Gather + Gather",
+    "cuisine": "coffee_shop",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "internet_access:ssid": "The Exchange Public WiFi",
+    "name": "The Exchange",
+    "opening_hours": "Mo-Fr 07:30-15:00",
+    "outdoor_seating": "yes",
+    "website": "https://www.chinehampark.co.uk/the-exchange/"
+  }
+},
+{
+  "type": "node",
+  "id": 12158635892,
+  "lat": 51.2643453,
+  "lon": -1.0872756,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "asian",
+    "delivery": "yes",
+    "name": "Chi Street Food",
+    "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12158635893,
+  "lat": 51.2644170,
+  "lon": -1.0870028,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Kensington House",
+    "addr:housenumber": "2 - 3",
+    "addr:postcode": "RG21 7LN",
+    "addr:street": "Festival Place",
+    "amenity": "restaurant",
+    "cuisine": "italian",
+    "fhrs:id": "21435",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Cafe Giardino",
+    "opening_hours": "Su-Th 09:00-17:00; Fr 08:00-18:00; Sa 08:00-19:00",
+    "outdoor_seating": "no",
+    "phone": "+44 1256 478078",
+    "source:addr": "FHRS Open Data",
+    "website": "https://www.cafe-giardino.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 12163269763,
+  "lat": 51.2635123,
+  "lon": -1.0891020,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "chinese",
+    "delivery": "yes",
+    "name": "Chopstix Chinese Takeaway",
+    "not:brand:wikidata": "Q115327253",
+    "opening_hours": "Su-Mo 11:00-14:00,16:30-22:30; Tu off; We-Th 11:00-14:00,16:30-22:30; Fr-Sa 11:00-14:00,16:30-23:00; PH 11:00-14:00,16:30-22:30",
+    "phone": "+44 1256 477770",
+    "takeaway": "only"
+  }
+},
+{
+  "type": "node",
+  "id": 12479584820,
+  "lat": 51.2637835,
+  "lon": -1.0877800,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "burger",
+    "fhrs:id": "1696636",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Mr Munch",
+    "opening_hours": "Mo-Fr 08:00-18:30",
+    "outdoor_seating": "no",
+    "phone": "+44 1256 322665"
+  }
+},
+{
+  "type": "node",
+  "id": 12479584821,
+  "lat": 51.2637780,
+  "lon": -1.0878125,
+  "tags": {
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "delivery": "yes",
+    "fhrs:id": "842529",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Spicy Tadka",
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00",
+    "outdoor_seating": "no",
+    "phone": "+44 1256 636300"
+  }
+},
+{
+  "type": "node",
+  "id": 12479586250,
+  "lat": 51.2637315,
+  "lon": -1.0876808,
+  "tags": {
+    "addr:housenumber": "1 Clapham House",
+    "addr:postcode": "RG21 7JN",
+    "amenity": "restaurant",
+    "cuisine": "african",
+    "delivery": "yes",
+    "fhrs:id": "1468089",
+    "indoor_seating": "yes",
+    "name": "Afrizi",
+    "opening_hours": "Mo-Sa 11:30-20:00; Su 12:00-18:00",
+    "outdoor_seating": "no",
+    "phone": "+44 1256 279170",
+    "takeaway": "yes",
+    "website": "https://www.afrizi.co.uk",
+    "website:menu": "https://www.afrizi.co.uk/menu.php"
+  }
+},
+{
+  "type": "node",
+  "id": 12560793770,
+  "lat": 51.2684497,
+  "lon": -1.0883744,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Basingstoke Railway Station",
+    "addr:postcode": "RG21 5NE",
+    "addr:street": "Station Approach",
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "18911",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "source:addr": "FHRS Open Data",
+    "takeaway": "only",
+    "website": "https://www.starbucks.co.uk/store-locator/82382-310630"
+  }
+},
+{
+  "type": "node",
+  "id": 12860243473,
+  "lat": 51.2637769,
+  "lon": -1.0862437,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "33",
+    "addr:street": "Wote Street",
+    "amenity": "restaurant",
+    "cuisine": "dessert",
+    "name": "Scooperb",
+    "website": "https://scooperb.co.uk/shops/basingstoke/"
+  }
+},
+{
+  "type": "node",
+  "id": 12861629974,
+  "lat": 51.2652202,
+  "lon": -1.0844249,
+  "tags": {
+    "amenity": "restaurant",
+    "fixme": "Not sure of cuisine or details - needs surveying",
+    "name": "El Bigote"
+  }
+},
+{
+  "type": "node",
+  "id": 12861676417,
+  "lat": 51.2648425,
+  "lon": -1.0848661,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "R1",
+    "addr:postcode": "RG21 7BE",
+    "addr:street": "Festival Place",
+    "amenity": "restaurant",
+    "brand": "Côte Brasserie",
+    "brand:wikidata": "Q48699908",
+    "check_date": "2025-05-24",
+    "cuisine": "french",
+    "fhrs:id": "1086161",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Côte Brasserie",
+    "outdoor_seating": "yes",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 12861676419,
+  "lat": 51.2647369,
+  "lon": -1.0852658,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG21 7BE",
+    "addr:street": "Festival Place",
+    "addr:unit": "Unit R1a",
+    "amenity": "restaurant",
+    "cuisine": "dessert",
+    "email": "basingtoke@heavenlydesserts.co.uk",
+    "fhrs:id": "1758402",
+    "indoor_seating": "yes",
+    "level": "0",
+    "name": "Heavenly Desserts",
+    "opening_hours": "Mo-Fr 11:00-23:00; Sa-Su 10:00-23:00",
+    "outdoor_seating": "no",
+    "phone": "+44 20 3621 6132",
+    "source:addr": "FHRS Open Data",
+    "website": "https://www.heavenlydesserts.co.uk/stores/basingstoke",
+    "website:menu": "https://www.heavenlydesserts.co.uk/tprm-stores/basingstoke"
+  }
+},
+{
+  "type": "node",
+  "id": 12877490099,
+  "lat": 51.2625874,
+  "lon": -1.0866968,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "2-3",
+    "addr:postcode": "RG21 7QA",
+    "addr:street": "Market Place",
+    "amenity": "restaurant",
+    "cuisine": "burger;coffee_shop;sandwich",
+    "fhrs:id": "46846",
+    "indoor_seating": "yes",
+    "name": "Poppins",
+    "outdoor_seating": "yes",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "node",
+  "id": 13045906691,
+  "lat": 51.2839178,
+  "lon": -1.0692363,
+  "tags": {
+    "amenity": "cafe",
+    "level": "1",
+    "name": "Pausa",
+    "opening_hours": "Mo-Fr 09:00-17:00, Sa 09:00-17:30; Su 10:30-16:30"
+  }
+},
+{
+  "type": "node",
+  "id": 13208968716,
+  "lat": 51.2651589,
+  "lon": -1.0855178,
+  "tags": {
+    "addr:postcode": "RG21 7BF",
+    "addr:street": "Queen Anne's Walk",
+    "addr:substreet": "Festival Place",
+    "addr:unit": "50",
+    "amenity": "restaurant",
+    "contact:phone": "+44 1256 869588",
+    "cuisine": "asian",
+    "email": "nfo@hansbuffetbasingstoke.co.uk",
+    "indoor_seating": "yes",
+    "level": "1",
+    "name": "Han's Buffet",
+    "opening_hours": "Mo-Th 12:00-15:00,17:30-21:30; Fr 12:00-15:00,17:30-22:00; Sa 12:00-22:30; Su 12:00-21:30",
+    "outdoor_seating": "no",
+    "website": "https://hansbuffetbasingstoke.co.uk/"
+  }
+},
+{
+  "type": "node",
+  "id": 13275553266,
+  "lat": 51.2762299,
+  "lon": -1.0577786,
+  "tags": {
+    "amenity": "cafe",
+    "name": "The Street",
+    "outdoor_seating": "yes",
+    "payment:apple_pay": "yes",
+    "payment:contactless": "yes",
+    "shop": "bakery"
+  }
+},
+{
+  "type": "node",
+  "id": 13971971903,
+  "lat": 51.2624273,
+  "lon": -1.0845390,
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "28",
+    "addr:postcode": "RG21 7NY",
+    "addr:street": "London Street",
+    "addr:unit": "1",
+    "air_conditioning": "yes",
+    "amenity": "restaurant",
+    "cuisine": "indian",
+    "diet:vegetarian": "yes",
+    "name": "Elai",
+    "payment:american_express": "no",
+    "payment:debit_cards": "yes",
+    "toilets": "yes",
+    "toilets:access": "customers"
+  }
+},
+{
+  "type": "way",
+  "id": 157921419,
+  "center": {
+    "lat": 51.2841236,
+    "lon": -1.0595665
+  },
+  "tags": {
+    "addr:housenumber": "15",
+    "addr:place": "Chineham Shopping Centre",
+    "addr:postcode": "RG24 8BQ",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "building": "retail",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "840734",
+    "name": "Costa",
+    "source": "bing;survey",
+    "takeaway": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 191278481,
+  "center": {
+    "lat": 51.2647849,
+    "lon": -1.1170336
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Spruce Goose",
+    "addr:postcode": "RG22 6PG",
+    "addr:street": "Worting Road",
+    "amenity": "restaurant",
+    "brand": "Beefeater",
+    "brand:wikidata": "Q4879766",
+    "building": "yes",
+    "cuisine": "british",
+    "fhrs:id": "90076",
+    "name": "Spruce Goose",
+    "opening_hours:signed": "no",
+    "operator": "Beefeater Grill",
+    "phone": "+44 1256 811477",
+    "website": "https://www.beefeater.co.uk/en-gb/locations/hampshire/spruce-goose"
+  }
+},
+{
+  "type": "way",
+  "id": 223278914,
+  "center": {
+    "lat": 51.2642723,
+    "lon": -1.1185285
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Basingstoke Leisure Park",
+    "addr:postcode": "RG22 6PJ",
+    "addr:street": "Euskirchen Way",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "building": "retail",
+    "cuisine": "coffee_shop",
+    "drive_through": "yes",
+    "fhrs:id": "580283",
+    "name": "Costa",
+    "opening_hours": "Mo-Fr 06:00-21:00; Sa 07:00-18:00; Su 08:00-18:00",
+    "source:addr": "FHRS Open Data",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 308124291,
+  "center": {
+    "lat": 51.2871718,
+    "lon": -1.0696389
+  },
+  "tags": {
+    "amenity": "cafe",
+    "building": "yes",
+    "name": "Lunch Box",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 312959773,
+  "center": {
+    "lat": 51.2640238,
+    "lon": -1.0333045
+  },
+  "tags": {
+    "amenity": "pub",
+    "brand": "Chef & Brewer",
+    "brand:wikidata": "Q5089491",
+    "building": "yes",
+    "fhrs:id": "55552",
+    "name": "The Hatch",
+    "operator": "Chef & Brewer",
+    "source": "bing",
+    "website": "https://www.chefandbrewer.com/pubs/hampshire/hatch"
+  }
+},
+{
+  "type": "way",
+  "id": 313793355,
+  "center": {
+    "lat": 51.2634902,
+    "lon": -1.0426879
+  },
+  "tags": {
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "fish_and_chips",
+    "name": "Oliver's",
+    "source": "bing",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 314117730,
+  "center": {
+    "lat": 51.2685032,
+    "lon": -1.0854750
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG21 7JE",
+    "addr:street": "Bunnian Place",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "8908",
+    "name": "The Queens Arms",
+    "source": "bing"
+  }
+},
+{
+  "type": "way",
+  "id": 315768388,
+  "center": {
+    "lat": 51.2623631,
+    "lon": -1.0897588
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Winton Square",
+    "addr:postcode": "RG21 8EU",
+    "addr:street": "Winton Square",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "869503",
+    "name": "The Wheatsheaf",
+    "wikidata": "Q26567587"
+  }
+},
+{
+  "type": "way",
+  "id": 331112004,
+  "center": {
+    "lat": 51.2846857,
+    "lon": -1.0593734
+  },
+  "tags": {
+    "addr:postcode": "RG24 8BQ",
+    "addr:street": "Reading Road",
+    "amenity": "cafe",
+    "building": "yes",
+    "diet:vegan": "yes",
+    "fhrs:id": "1415291",
+    "name": "Vemillion",
+    "old_name": "Coral",
+    "opening_hours": "Mo-Fr 08:30-17:00; Sa 09:30-17:00; Su 10:00-16:00",
+    "phone": "+44 7926 150957",
+    "source": "survey",
+    "website": "https://www.vermillion.com",
+    "website:menu": "https://www.vemillion.com/menu/"
+  }
+},
+{
+  "type": "way",
+  "id": 331112014,
+  "center": {
+    "lat": 51.2846856,
+    "lon": -1.0592974
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Chineham Shopping Centre",
+    "addr:postcode": "RG24 8BQ",
+    "addr:suburb": "Chineham",
+    "addr:unit": "8",
+    "amenity": "restaurant",
+    "building": "retail",
+    "cuisine": "greek;greek_street",
+    "fhrs:id": "1275259",
+    "name": "Greek Street",
+    "phone": "+44 7522 783831",
+    "source": "bing;local knowledge",
+    "source:addr": "FHRS Open Data",
+    "website": "https://snezanacatering.com"
+  }
+},
+{
+  "type": "way",
+  "id": 442761459,
+  "center": {
+    "lat": 51.2693455,
+    "lon": -1.0919463
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG21 5TB",
+    "addr:street": "Chapel Hill",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "1795334",
+    "name": "The Rising Sun"
+  }
+},
+{
+  "type": "way",
+  "id": 549618279,
+  "center": {
+    "lat": 51.2639649,
+    "lon": -1.0733618
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "name": "The Rivermead",
+    "old_name": "Skewers"
+  }
+},
+{
+  "type": "way",
+  "id": 589060058,
+  "center": {
+    "lat": 51.2731007,
+    "lon": -1.0637873
+  },
+  "tags": {
+    "amenity": "cafe",
+    "building": "industrial",
+    "name": "Lunchbox"
+  }
+},
+{
+  "type": "way",
+  "id": 602426667,
+  "center": {
+    "lat": 51.2776503,
+    "lon": -1.0806971
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "38",
+    "addr:postcode": "RG21 5RJ",
+    "addr:street": "Cherry Tree Walk",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "840729;1415290",
+    "name": "The Oak",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "way",
+  "id": 615617306,
+  "center": {
+    "lat": 51.2780030,
+    "lon": -1.1063675
+  },
+  "tags": {
+    "amenity": "cafe",
+    "fixme": "check boundaries",
+    "name": "The Corner Lounge Cafe"
+  }
+},
+{
+  "type": "way",
+  "id": 634211370,
+  "center": {
+    "lat": 51.2521354,
+    "lon": -1.1083372
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "Unit 11",
+    "addr:parentstreet": "The Harrow Way",
+    "addr:place": "St Michael's Retail Park",
+    "addr:postcode": "RG22 4AZ",
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "building": "retail",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "1138614",
+    "name": "Costa",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 634844967,
+  "center": {
+    "lat": 51.2521066,
+    "lon": -1.1077676
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "Unit 8",
+    "addr:parentstreet": "The Harrow Way",
+    "addr:place": "St Michael's Retail Park",
+    "addr:postcode": "RG22 4AZ",
+    "amenity": "restaurant",
+    "brand": "Nando's",
+    "brand:wikidata": "Q3472954",
+    "brand:wikipedia": "en:Nando's",
+    "building": "retail",
+    "cuisine": "chicken;portuguese",
+    "fhrs:id": "1098014",
+    "name": "Nando's",
+    "not:addr:postcode": "RG22 4AN",
+    "website": "https://www.nandos.co.uk/restaurants/basingstoke-st-michaels"
+  }
+},
+{
+  "type": "way",
+  "id": 696094802,
+  "center": {
+    "lat": 51.2849291,
+    "lon": -1.0719709
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "name": "Dragonfly"
+  }
+},
+{
+  "type": "way",
+  "id": 701381002,
+  "center": {
+    "lat": 51.2655161,
+    "lon": -1.0870411
+  },
+  "tags": {
+    "amenity": "cafe",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "building": "yes",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "840732",
+    "indoor_seating": "yes",
+    "name": "Costa",
+    "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-18:00; Su 10:00-17:00",
+    "outdoor_seating": "no",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 701576721,
+  "center": {
+    "lat": 51.2624346,
+    "lon": -1.0884955
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "20A",
+    "addr:postcode": "RG21 7DZ",
+    "addr:street": "Winchester Street",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "turkish",
+    "fhrs:id": "1527605",
+    "name": "The Meldiz Turkish Restaurant",
+    "website": "https://themeldizturkishrestaurant.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 701576723,
+  "center": {
+    "lat": 51.2624574,
+    "lon": -1.0881657
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "20",
+    "addr:postcode": "RG21 7DZ",
+    "addr:street": "Winchester Street",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "chinese",
+    "fhrs:id": "706997",
+    "name": "Tang",
+    "opening_hours": "Mo-Sa 12:00-14:30, 17:30-23:00; Su 12:00-16:00, 18:00-23:00",
+    "phone": "+44 1256 330400",
+    "website": "https://www.tangrestaurant.co.uk"
+  }
+},
+{
+  "type": "way",
+  "id": 701576728,
+  "center": {
+    "lat": 51.2630825,
+    "lon": -1.0884983
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:postcode": "RG21 7DF",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "chinese",
+    "fhrs:id": "22048",
+    "name": "Oriental Wok"
+  }
+},
+{
+  "type": "way",
+  "id": 701856478,
+  "center": {
+    "lat": 51.2624330,
+    "lon": -1.0821338
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "White Hart",
+    "addr:postcode": "RG21 4AE",
+    "addr:street": "London Road",
+    "amenity": "pub",
+    "building": "retail",
+    "fhrs:id": "55347",
+    "name": "White Hart",
+    "source:addr": "FHRS Open Data",
+    "wikidata": "Q26524469"
+  }
+},
+{
+  "type": "way",
+  "id": 747354673,
+  "center": {
+    "lat": 51.2736909,
+    "lon": -1.1055458
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housename": "Houndmills Trade Park",
+    "addr:housenumber": "6",
+    "addr:postcode": "RG21 6AH",
+    "addr:street": "Houndmills Road",
+    "amenity": "cafe",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "brand:wikipedia": "en:Starbucks",
+    "building": "retail",
+    "building:levels": "1",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "1932636",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "opening_hours": "Mo-Fr 05:45-21:00; Sa-Su 06:00-21:00",
+    "phone": "+44 1256 472471",
+    "source:addr": "FHRS Open Data",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/1015130/basingstoke-houndmills-park-houndmills-road-basingstoke-eng-rg-21-6-ah-gb"
+  }
+},
+{
+  "type": "way",
+  "id": 847270035,
+  "center": {
+    "lat": 51.2622786,
+    "lon": -1.1319295
+  },
+  "tags": {
+    "addr:street": "Worting Road",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "89920",
+    "name": "Royal Oak"
+  }
+},
+{
+  "type": "way",
+  "id": 847316774,
+  "center": {
+    "lat": 51.2620354,
+    "lon": -1.1333309
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housenumber": "367",
+    "addr:postcode": "RG22 5EQ",
+    "addr:street": "Worting Road",
+    "amenity": "pub",
+    "building": "retail",
+    "fhrs:id": "1791347",
+    "name": "The White Hart Inn",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "way",
+  "id": 855900494,
+  "center": {
+    "lat": 51.2637073,
+    "lon": -1.0930666
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG21 8SS",
+    "addr:street": "Sarum Hill",
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "1557677",
+    "name": "The New Inn"
+  }
+},
+{
+  "type": "way",
+  "id": 866069832,
+  "center": {
+    "lat": 51.2505058,
+    "lon": -1.1126148
+  },
+  "tags": {
+    "addr:postcode": "RG22 6HL",
+    "amenity": "restaurant",
+    "brand": "PizzaExpress",
+    "brand:wikidata": "Q662845",
+    "brand:wikipedia": "en:PizzaExpress",
+    "building": "commercial",
+    "cuisine": "pizza",
+    "diet:gluten_free": "yes",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "fhrs:id": "89095",
+    "name": "PizzaExpress",
+    "website": "https://www.pizzaexpress.com/basingstoke-winchester-road"
+  }
+},
+{
+  "type": "way",
+  "id": 874782695,
+  "center": {
+    "lat": 51.2500865,
+    "lon": -1.0885651
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "name": "The Golden Lion"
+  }
+},
+{
+  "type": "way",
+  "id": 892355706,
+  "center": {
+    "lat": 51.2935815,
+    "lon": -1.1060072
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:housenumber": "3",
+    "addr:postcode": "RG24 9HS",
+    "addr:street": "Kiln Road",
+    "addr:village": "Sherborne St John",
+    "air_conditioning": "yes",
+    "amenity": "pub",
+    "brand": "Chef & Brewer",
+    "brand:wikidata": "Q5089491",
+    "building": "yes",
+    "fhrs:id": "50976",
+    "internet_access": "yes",
+    "name": "The Swan",
+    "smoking": "outside",
+    "website": "https://www.chefandbrewer.com/pubs/hampshire/swan-sherborne-st-john/"
+  }
+},
+{
+  "type": "way",
+  "id": 921114502,
+  "center": {
+    "lat": 51.2495979,
+    "lon": -1.1143615
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:postcode": "RG22 6HN",
+    "addr:street": "Winchester Road",
+    "amenity": "restaurant",
+    "brand": "Harvester",
+    "brand:wikidata": "Q5676915",
+    "brand:wikipedia": "en:Harvester (restaurant)",
+    "building": "yes",
+    "cuisine": "american",
+    "fhrs:id": "89094",
+    "name": "Stag And Hounds",
+    "operator": "Harvester",
+    "website": "https://www.harvester.co.uk/restaurants/southeast/thestagandhoundsbasingstoke"
+  }
+},
+{
+  "type": "way",
+  "id": 968775005,
+  "center": {
+    "lat": 51.2803315,
+    "lon": -1.0904125
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "fhrs:id": "1741996",
+    "name": "The Popinjay"
+  }
+},
+{
+  "type": "way",
+  "id": 1029291902,
+  "center": {
+    "lat": 51.2656852,
+    "lon": -1.0840002
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "amenity": "pub",
+    "brand": "Wetherspoon",
+    "brand:wikidata": "Q6109362",
+    "brand:wikipedia": "en:Wetherspoons",
+    "building": "yes",
+    "dog": "no",
+    "fhrs:id": "85654",
+    "internet_access": "wlan",
+    "name": "The Angel",
+    "website": "https://www.jdwetherspoon.com/pubs/all-pubs/england/hampshire/the-angel-basingstoke",
+    "website:menu": "https://order.jdwetherspoon.com/venue/jdw/4084/menus",
+    "wikidata": "Q109483652"
+  }
+},
+{
+  "type": "way",
+  "id": 1029291903,
+  "center": {
+    "lat": 51.2656420,
+    "lon": -1.0842410
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "addr:unit": "R5",
+    "amenity": "restaurant",
+    "brand": "ASK Italian",
+    "brand:wikidata": "Q4807056",
+    "brand:wikipedia": "en:ASK Italian",
+    "building": "yes",
+    "cuisine": "italian",
+    "fhrs:id": "18588",
+    "name": "ASK Italian",
+    "website": "https://www.askitalian.co.uk/italian/restaurants/basingstoke"
+  }
+},
+{
+  "type": "way",
+  "id": 1029291904,
+  "center": {
+    "lat": 51.2655948,
+    "lon": -1.0844571
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "addr:unit": "R4",
+    "amenity": "restaurant",
+    "brand": "Nando's",
+    "brand:wikidata": "Q3472954",
+    "brand:wikipedia": "en:Nando's",
+    "building": "yes",
+    "cuisine": "chicken;portuguese",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "fhrs:id": "85656",
+    "name": "Nando's",
+    "toilets": "yes",
+    "toilets:wheelchair": "yes",
+    "website": "https://www.nandos.co.uk/restaurants/basingstoke-festival-place",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1029291905,
+  "center": {
+    "lat": 51.2655644,
+    "lon": -1.0846798
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BA",
+    "amenity": "restaurant",
+    "branch": "Basingstoke",
+    "brand": "Cosy Club",
+    "brand:wikidata": "Q108443521",
+    "building": "yes",
+    "cuisine": "british",
+    "email": "basingstokebookings@cosyclub.co.uk",
+    "name": "Cosy Club",
+    "phone": "+44 1256 212825",
+    "website": "https://cosyclub.co.uk/location/basingstoke/"
+  }
+},
+{
+  "type": "way",
+  "id": 1029291906,
+  "center": {
+    "lat": 51.2652633,
+    "lon": -1.0841262
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:place": "Festival Place",
+    "addr:postcode": "RG21 7BB",
+    "addr:unit": "R7",
+    "amenity": "restaurant",
+    "brand": "PizzaExpress",
+    "brand:wikidata": "Q662845",
+    "brand:wikipedia": "en:PizzaExpress",
+    "cuisine": "pizza",
+    "diet:gluten_free": "yes",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "fhrs:id": "34890",
+    "level": "0",
+    "name": "PizzaExpress",
+    "website": "https://www.pizzaexpress.com/basingstoke-festival-place-shopping-centre"
+  }
+},
+{
+  "type": "way",
+  "id": 1039666161,
+  "center": {
+    "lat": 51.2682557,
+    "lon": -1.0878811
+  },
+  "tags": {
+    "amenity": "cafe",
+    "cuisine": "coffee_shop",
+    "level": "0",
+    "name": "Cafe destino"
+  }
+},
+{
+  "type": "way",
+  "id": 1044698130,
+  "center": {
+    "lat": 51.2621970,
+    "lon": -1.0866182
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Zizzis",
+    "addr:housenumber": "1",
+    "addr:postcode": "RG21 7NT",
+    "addr:street": "London Street",
+    "amenity": "restaurant",
+    "brand": "Zizzi",
+    "brand:wikidata": "Q8072944",
+    "brand:wikipedia": "en:Zizzi",
+    "building": "yes",
+    "check_date": "2026-02-22",
+    "check_date:opening_hours": "2026-02-22",
+    "cuisine": "italian",
+    "fhrs:id": "55680",
+    "name": "Zizzi",
+    "opening_hours": "Mo-Th 11:30-22:00; Fr-Sa 11:30-23:00; Su 11:30-22:00",
+    "website": "https://www.zizzi.co.uk/italian/restaurants/basingstoke",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1080372887,
+  "center": {
+    "lat": 51.2673223,
+    "lon": -1.0879903
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:country": "GB",
+    "addr:county": "Hampshire",
+    "addr:housename": "Castle Square",
+    "addr:postcode": "RG21 7FH",
+    "addr:unit": "5",
+    "amenity": "cafe",
+    "area": "yes",
+    "baby_feeding": "yes",
+    "brand": "Costa",
+    "brand:wikidata": "Q608845",
+    "brand:wikipedia": "en:Costa Coffee",
+    "cuisine": "coffee_shop",
+    "fhrs:id": "768237",
+    "indoor_seating": "yes",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Costa",
+    "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-18:00; Su 09:00-17:00",
+    "outdoor_seating": "yes",
+    "takeaway": "yes",
+    "toilets:access": "customers",
+    "toilets:wheelchair": "designated"
+  }
+},
+{
+  "type": "way",
+  "id": 1222487152,
+  "center": {
+    "lat": 51.2461303,
+    "lon": -1.1274690
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:housename": "Down Grange House",
+    "addr:postcode": "RG22 4ET",
+    "addr:street": "Down Grange Farm",
+    "amenity": "restaurant",
+    "branch": "Basingstoke",
+    "brand": "Miller & Carter",
+    "brand:wikidata": "Q87067401",
+    "building": "retail",
+    "cuisine": "steak",
+    "fhrs:id": "1041289",
+    "name": "Miller & Carter",
+    "opening_hours": "Mo-Su 12:00-23:00",
+    "source": "microsoft/BuildingFootprints",
+    "source:addr": "FHRS Open Data",
+    "website": "https://www.millerandcarter.co.uk/restaurants/south-east/millerandcarterbasingstoke",
+    "website:menu": "https://www.millerandcarter.co.uk/restaurants/south-east/millerandcarterbasingstoke/menus/food",
+    "wikidata": "Q26567613"
+  }
+},
+{
+  "type": "way",
+  "id": 1333189743,
+  "center": {
+    "lat": 51.2462832,
+    "lon": -1.1381420
+  },
+  "tags": {
+    "addr:city": "Basingstoke",
+    "addr:county": "Hampshire",
+    "addr:postcode": "RG22 5NZ",
+    "addr:street": "Buckingham Parade",
+    "amenity": "pub",
+    "building": "retail",
+    "fhrs:id": "840684",
+    "name": "The Kestrel",
+    "source:addr": "FHRS Open Data"
+  }
+},
+{
+  "type": "way",
+  "id": 1334276049,
+  "center": {
+    "lat": 51.2347048,
+    "lon": -1.1173054
+  },
+  "tags": {
+    "addr:country": "GB",
+    "addr:postcode": "RG22 4RA",
+    "addr:street": "Hatchwarren Lane",
+    "amenity": "pub",
+    "brand": "Hall & Woodhouse",
+    "brand:wikidata": "Q5642555",
+    "brand:wikipedia": "en:Hall & Woodhouse",
+    "brewery": "Badger",
+    "building": "yes",
+    "building:levels": "1",
+    "email": "portsmoutharms.hatchwarren@hall-woodhouse.co.uk",
+    "indoor_seating": "yes",
+    "name": "Portsmouth Arms",
+    "opening_hours": "Mo-Fr 11:30-23:00; Sa 11:00-23:00; Su 11:30-22:00",
+    "outdoor_seating": "yes",
+    "phone": "+44 1256 334036",
+    "source": "microsoft/BuildingFootprints",
+    "website": "https://www.portsmoutharmshatchwarren.co.uk/",
+    "website:menu": "http://www.portsmoutharmshatchwarren.co.uk/our-food/ www.portsmoutharmshatchwarren.co.uk/our-drinks/"
+  }
+},
+{
+  "type": "way",
+  "id": 1472500540,
+  "center": {
+    "lat": 51.2764730,
+    "lon": -1.0971497
+  },
+  "tags": {
+    "amenity": "pub",
+    "building": "yes",
+    "name": "The Soldiers Return"
+  }
+}
+
+  ]
+}

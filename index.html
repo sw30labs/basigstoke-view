@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BASINGSTOKE·VIEW — Local Intelligence Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+<!-- ============ BOOT SPLASH ============ -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-logo">BASINGSTOKE·VIEW</div>
+    <div class="boot-sub">LOCAL INTELLIGENCE CONSOLE · OS GRID SU85 · 51°15′49″N 01°05′27″W</div>
+    <div id="boot-log"></div>
+    <div class="boot-bar"><div id="boot-fill"></div></div>
+    <div class="boot-quote" id="boot-quote"></div>
+  </div>
+</div>
+
+<!-- ============ TOP BAR ============ -->
+<header id="topbar" class="hidden">
+  <div class="tb-left">
+    <span class="tb-logo">BASINGSTOKE·VIEW</span>
+    <span class="tb-clock" id="clock">--:--:--</span>
+    <span class="tb-date" id="date">---</span>
+  </div>
+  <div class="tb-center" id="mode-tabs">
+    <button class="tab active" data-mode="tactical">TACTICAL</button>
+    <button class="tab" data-mode="relief">RELIEF</button>
+    <button class="tab" data-mode="radar">RADAR</button>
+    <button class="tab" data-mode="night">NIGHT OPS</button>
+  </div>
+  <div class="tb-right">
+    <span id="wx-chip" class="wx-chip">WX --</span>
+    <span id="sats-chip" class="wx-chip">SAT --</span>
+    <span class="live-dot" title="live feeds"></span>
+  </div>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main id="app" class="hidden">
+  <canvas id="map"></canvas>
+  <div id="reticle"></div>
+
+  <!-- left rail: layers -->
+  <aside id="leftrail">
+    <div class="rail-title">LAYER CONTROL</div>
+    <label class="lrow"><input type="checkbox" data-layer="terrain" checked><span>Terrain · SRTM</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="contours" checked><span>Contours</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="urban" checked><span>Urban fabric</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="water" checked><span>Hydrology</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="roads" checked><span>Roads M3/A30</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="rail" checked><span>Railways</span></label>
+    <label class="lrow"><input type="checkbox" data-layer="places" checked><span>Points of interest</span></label>
+    <div class="rail-sep"></div>
+    <div class="rail-title">LIVE FEEDS</div>
+    <label class="lrow live"><input type="checkbox" data-layer="flights" checked><span>Air traffic</span><i id="n-flights" class="cnt">0</i></label>
+    <label class="lrow live"><input type="checkbox" data-layer="iss" checked><span>ISS + payloads</span><i id="n-iss" class="cnt">–</i></label>
+    <label class="lrow live"><input type="checkbox" data-layer="quakes" checked><span>Seismicity</span><i id="n-quakes" class="cnt">0</i></label>
+    <label class="lrow live"><input type="checkbox" data-layer="trafficflow" checked><span>Road flow sim</span></label>
+    <div class="rail-sep"></div>
+    <div class="rail-title">GOTO</div>
+    <div id="gotolist"></div>
+  </aside>
+
+  <!-- right rail: intel -->
+  <aside id="rightrail">
+    <section class="panel" id="p-iss">
+      <div class="panel-h">ISS · NEXT PASS OVER BASINGSTOKE</div>
+      <div class="panel-b" id="iss-body">computing…</div>
+    </section>
+    <section class="panel" id="p-flights">
+      <div class="panel-h">AIR TRACKS · 120 KM RADIUS</div>
+      <div class="panel-b" id="flights-body">acquiring…</div>
+    </section>
+    <section class="panel" id="p-quakes">
+      <div class="panel-h">SEISMICITY · 24H GLOBAL</div>
+      <div class="panel-b" id="quakes-body">…</div>
+    </section>
+    <section class="panel" id="p-hub">
+      <div class="panel-h">STATION ANALYSIS · Basingstoke (BSG)</div>
+      <div class="panel-b" id="hub-body">…</div>
+    </section>
+    <section class="panel" id="p-intel">
+      <div class="panel-h">LOCAL INTEL</div>
+      <div class="panel-b" id="intel-body">…</div>
+    </section>
+  </aside>
+
+  <!-- radar panel (only in radar mode) -->
+  <div id="radarbox" class="hidden">
+    <canvas id="radar" width="560" height="560"></canvas>
+    <div class="radar-legend">RHI-PPI · 120 km · centre SU 855 545 · sweep 4 s</div>
+  </div>
+
+  <!-- detail popup -->
+  <div id="popup" class="hidden">
+    <div id="popup-title"></div>
+    <div id="popup-body"></div>
+    <button id="popup-close">×</button>
+  </div>
+
+  <!-- bottom ticker -->
+  <footer id="ticker"><div id="ticker-track"></div></footer>
+
+  <!-- status bar -->
+  <div id="statusbar">
+    <span id="cursor-coords">SU ----- -----</span>
+    <span id="zoom-level">z--</span>
+    <span id="fly-count">TRACKS --</span>
+    <span id="last-sync">SYNC --:--:--</span>
+    <span class="credit">data: OpenSky · USGS · Open-Meteo · SRTM · © OpenStreetMap contributors · Telegeography</span>
+  </div>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

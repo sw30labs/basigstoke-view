@@ -1,0 +1,165 @@
+/* ================================================================
+   BASINGSTOKE·VIEW — phosphor-green surveillance console aesthetic
+   ================================================================ */
+:root {
+  --bg: #050a08;
+  --bg2: #071210;
+  --ink: #b8ffe2;
+  --ink-dim: #4e8f78;
+  --ink-faint: #2b5c4c;
+  --phos: #35ff9e;
+  --amber: #ffb347;
+  --red: #ff5c5c;
+  --cyan: #4fd8ff;
+  --panel: rgba(8, 22, 18, 0.88);
+  --line: rgba(53, 255, 158, 0.22);
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --sans: "Space Grotesk", system-ui, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 12px;
+  user-select: none;
+}
+.hidden { display: none !important; }
+
+/* ---------- scanline / CRT flavour ---------- */
+body::after {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 200;
+  background: repeating-linear-gradient(0deg,
+    rgba(0,0,0,0) 0px, rgba(0,0,0,0) 2px, rgba(0,0,0,.14) 3px);
+  mix-blend-mode: multiply;
+}
+
+/* ================= BOOT ================= */
+#boot {
+  position: fixed; inset: 0; z-index: 300;
+  background: radial-gradient(ellipse at 50% 40%, #0a1c15 0%, var(--bg) 70%);
+  display: flex; align-items: center; justify-content: center;
+}
+.boot-inner { width: min(640px, 86vw); }
+.boot-logo {
+  font-family: var(--sans); font-weight: 700; font-size: 34px;
+  letter-spacing: 6px; color: var(--phos);
+  text-shadow: 0 0 18px rgba(53,255,158,.55);
+}
+.boot-sub { color: var(--ink-dim); margin: 6px 0 22px; letter-spacing: 2px; font-size: 11px; }
+#boot-log { height: 150px; overflow: hidden; font-size: 11px; color: var(--ink-dim); }
+#boot-log .ok { color: var(--phos); }
+#boot-log .err { color: var(--red); }
+.boot-bar { height: 3px; background: #0e261e; margin-top: 18px; }
+#boot-fill { height: 100%; width: 0%; background: var(--phos); transition: width .3s; box-shadow: 0 0 8px var(--phos); }
+.boot-quote { margin-top: 14px; color: var(--ink-faint); font-style: italic; min-height: 16px; }
+
+/* ================= TOPBAR ================= */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; height: 44px; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px;
+  background: linear-gradient(180deg, rgba(5,12,9,.96), rgba(5,12,9,.75));
+  border-bottom: 1px solid var(--line);
+}
+.tb-logo { font-family: var(--sans); font-weight: 700; letter-spacing: 3px; color: var(--phos); text-shadow: 0 0 12px rgba(53,255,158,.4); margin-right: 18px; }
+.tb-clock { font-size: 15px; font-weight: 600; letter-spacing: 1px; }
+.tb-date { color: var(--ink-dim); margin-left: 10px; }
+#mode-tabs { display: flex; gap: 4px; }
+.tab {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  background: transparent; color: var(--ink-dim);
+  border: 1px solid transparent; padding: 5px 14px; cursor: pointer;
+}
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--phos); border-color: var(--line); background: rgba(53,255,158,.06); box-shadow: inset 0 0 12px rgba(53,255,158,.08); }
+.tb-right { display: flex; align-items: center; gap: 10px; }
+.wx-chip { color: var(--ink-dim); border: 1px solid var(--line); padding: 3px 8px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--phos); box-shadow: 0 0 8px var(--phos); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+
+/* ================= APP / MAP ================= */
+#app { position: fixed; inset: 0; }
+#map { position: absolute; inset: 0; cursor: crosshair; }
+
+/* ---------- rails ---------- */
+aside {
+  position: absolute; top: 56px; bottom: 46px; z-index: 30;
+  background: var(--panel); border: 1px solid var(--line);
+  overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--ink-faint) transparent;
+  backdrop-filter: blur(6px);
+}
+#leftrail { left: 12px; width: 210px; padding: 10px; }
+#rightrail { right: 12px; width: 296px; padding: 8px; display: flex; flex-direction: column; gap: 8px; }
+.rail-title { font-size: 10px; letter-spacing: 3px; color: var(--ink-faint); margin: 8px 0 6px; }
+.rail-sep { border-top: 1px dashed var(--line); margin: 10px 0 2px; }
+.lrow { display: flex; align-items: center; gap: 8px; padding: 3px 2px; cursor: pointer; color: var(--ink-dim); }
+.lrow:hover { color: var(--ink); }
+.lrow input { accent-color: var(--phos); }
+.lrow .cnt { margin-left: auto; font-style: normal; color: var(--phos); }
+#gotolist button {
+  display: block; width: 100%; text-align: left;
+  background: none; border: none; border-left: 2px solid var(--line);
+  color: var(--ink-dim); font-family: var(--mono); font-size: 11px;
+  padding: 4px 8px; margin: 2px 0; cursor: pointer;
+}
+#gotolist button:hover { color: var(--phos); border-left-color: var(--phos); background: rgba(53,255,158,.05); }
+
+/* ---------- intel panels ---------- */
+.panel { border: 1px solid var(--line); background: rgba(6,16,13,.7); }
+.panel-h {
+  font-size: 10px; letter-spacing: 2px; color: var(--phos);
+  padding: 6px 9px; border-bottom: 1px solid var(--line);
+  background: rgba(53,255,158,.05);
+}
+.panel-b { padding: 8px 9px; line-height: 1.55; color: var(--ink-dim); }
+.panel-b b { color: var(--ink); font-weight: 500; }
+.panel-b .num { color: var(--phos); }
+.frow { display: flex; justify-content: space-between; gap: 8px; white-space: nowrap; cursor: pointer; padding: 1px 0; }
+.frow:hover { background: rgba(53,255,158,.07); }
+.frow .cs { color: var(--amber); }
+.big { font-size: 20px; font-weight: 600; color: var(--phos); }
+
+/* ---------- radar ---------- */
+#radarbox {
+  position: absolute; left: 50%; bottom: 60px; transform: translateX(-50%);
+  z-index: 28; border: 1px solid var(--line); background: rgba(3,8,6,.9);
+  padding: 8px;
+}
+.radar-legend { text-align: center; color: var(--ink-faint); font-size: 10px; letter-spacing: 1px; margin-top: 4px; }
+
+/* ---------- popup ---------- */
+#popup {
+  position: absolute; z-index: 60; width: 300px;
+  background: var(--panel); border: 1px solid var(--phos);
+  box-shadow: 0 0 30px rgba(53,255,158,.15);
+  padding: 10px 12px; line-height: 1.55;
+}
+#popup-title { color: var(--phos); font-weight: 600; margin-bottom: 5px; letter-spacing: 1px; }
+#popup-body { color: var(--ink-dim); }
+#popup-body b { color: var(--ink); }
+#popup-close { position: absolute; top: 4px; right: 6px; background: none; border: none; color: var(--ink-dim); font-size: 15px; cursor: pointer; }
+
+/* ---------- ticker ---------- */
+#ticker {
+  position: absolute; left: 234px; right: 322px; bottom: 24px; height: 22px; z-index: 29;
+  overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: rgba(5,12,9,.8);
+}
+#ticker-track { white-space: nowrap; line-height: 22px; color: var(--ink-dim); padding-left: 100%; animation: tick 120s linear infinite; }
+@keyframes tick { to { transform: translateX(-100%); } }
+
+/* ---------- statusbar ---------- */
+#statusbar {
+  position: fixed; left: 0; right: 0; bottom: 0; height: 24px; z-index: 50;
+  display: flex; align-items: center; gap: 22px; padding: 0 14px;
+  background: rgba(5,12,9,.95); border-top: 1px solid var(--line);
+  color: var(--ink-faint); font-size: 10px; letter-spacing: 1px;
+}
+#statusbar .credit { margin-left: auto; }
+
+/* reticle */
+#reticle { position: absolute; width: 26px; height: 26px; pointer-events: none; z-index: 25; opacity: 0; }
+#reticle.on { opacity: 1; }
