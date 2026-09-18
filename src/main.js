@@ -169,6 +169,54 @@ function projectContourENU() {
   }
 }
 
+async function loadTles() {
+  const txt = await (await fetch('assets/data/tles.json')).text();
+  const lines = txt.split(/\r?\n/);
+  let group = 'stations', name = 'UNKNOWN';
+  for (let i = 0; i < lines.length; i++) {
+    const ln = lines[i];
+    if (ln.startsWith('GROUP:')) { group = ln.slice(6).trim(); continue; }
+    if (ln.startsWith('1 ') && i + 1 < lines.length && lines[i + 1].startsWith('2 ')) {
+      try {
+        const satrec = twoline2satrec(ln, lines[i + 1]);
+        if (satrec && !satrec.error) state.satrecs.set(name, { satrec, name, group });
+      } catch (e) {}
+      i += 1; // consume line2
+    } else if (ln && !ln.startsWith('1 ') && !ln.startsWith('2 ') && !ln.startsWith('EPOCH:')) {
+      name = ln.trim();
+    }
+  }
+  state.tles = [...state.satrecs.keys()];
+}
+
+/* SGP4 → geodetic lon/lat/alt for a satrec at time */
+function satPos(satrec, date) {
+  const p = propagate(satrec, date);
+  if (!p || p.position === undefined) return null;
+  const gmst = gstime(date);
+  const geo = eciToGeodetic(eciToEcf(p.position, gmst), satrec.astar !== undefined ? 6378.137 : 6378.137);
+  return { lon: geo.longitude * 180 / Math.PI, lat: geo.latitude * 180 / Math.PI, alt: geo.height };
+}
+function groundTrack(satrec, minutes) {
+  const pts = [];
+  const start = Date.now();
+  for (let m = -minutes / 2; m <= minutes; m += 0.5) {
+    const p = satPos(satrec, new Date(start + m * 60000));
+    if (p) pts.push([p.lon, p.lat, p.alt, m]);
+  }
+  return pts;
+}
+/* look angles of ISS from Basingstoke right now */
+function lookAngles(satrec, date) {
+  const p = propagate(satrec, date);
+  if (!p || p.position === undefined) return null;
+  const gmst = gstime(date);
+  const obs = geodeticToEcf({ latitude: LAT0 * Math.PI / 180, longitude: LON0 * Math.PI / 180, height: 0.088 });
+  const r = eciToEcf(p.position, gmst);
+  const la = ecfToLookAngles(obs, { x: r.x - obs.x, y: r.y - obs.y, z: r.z - obs.z });
+  return { el: la.elevation * 180 / Math.PI, az: la.azimuth * 180 / Math.PI };
+}
+
 /* ---- fast projection from pre-computed ENU ---- */
 function pxs(ex, ey) {
   return [(ex - state.cx) * state.scale + W / 2, (ey - state.cy) * state.scale + H / 2];
