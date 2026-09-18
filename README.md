@@ -15,6 +15,8 @@ python3 server.py            # -> http://127.0.0.1:8123
 
 That's it. No build step, no npm install, no API keys.
 
+![TACTICAL mode — phosphor-green ops console over real Basingstoke terrain and live air traffic](docs/shot_tactical.png)
+
 ---
 
 ## What you get
@@ -22,6 +24,14 @@ That's it. No build step, no npm install, no API keys.
 **One town, four lenses** — `TACTICAL` (phosphor green ops console), `RELIEF`
 (hypsometric hillshade from real SRTM), `RADAR` (PPI scope with live-aircraft
 blips fading on a 4-second sweep), `NIGHT OPS` (red-light, preserve-your-dark-adaptation).
+
+| RELIEF — hypsometric SRTM hillshade | RADAR — PPI scope, live sweep |
+|---|---|
+| ![RELIEF mode](docs/shot_relief.png) | ![RADAR mode](docs/shot_radar.png) |
+
+| NIGHT OPS — red-light console |
+|---|
+| ![NIGHT OPS mode](docs/shot_night.png) |
 
 **Real terrain, not a basemap.** NASA SRTM one-arc-second tiles, stitched at ingest
 into a 120 m grid, rendered client-side as a Lambertian hillshade with hypsometric
